@@ -147,7 +147,7 @@ Gust: {data.list[0].main.humidity} mph
 </ul>
 
   </div>
-
+  <hr/>
   <div className="column">
   <p className="is-size-2">
 {moment( data.list[7].dt_txt).format('L') }
@@ -177,7 +177,7 @@ Gust: {data.list[0].main.humidity} mph
 
 
   </div>
-
+  <hr/>
   <div className="column">
   <p className="is-size-2">
 {moment( data.list[16].dt_txt).format('L') }
@@ -205,6 +205,7 @@ Gust: {data.list[0].main.humidity} mph
 </ul>
 
   </div>
+  <hr/>
   <div className="column">
 
   <p className="is-size-2">
@@ -235,6 +236,7 @@ Gust: {data.list[0].main.humidity} mph
 
 
   </div>
+  <hr/>
   <div className="column">
   <p className="is-size-2">
 {moment( data.list[33].dt_txt).format('L') }
