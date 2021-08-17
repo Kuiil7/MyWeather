@@ -1,10 +1,8 @@
-import React, {Fragment, useState, useEffect } from 'react';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import { DateTime } from 'luxon';
 
-//import FiveDayForecast from './FiveDayForecast';
-const moment = require('moment'); // require
-
+const moment = require('moment');
 require('dotenv').config()
 
 
@@ -91,12 +89,12 @@ Humidity: {data.list[0].main.humidity} %
 
 </li>
 <li>
-Wind Speed: {data.list[0].main.humidity} mph
+Wind Speed: {data.list[0].wind.speed} mph
 
 </li>
 
 <li>
-Gust: {data.list[0].main.humidity} mph
+Gust: {data.list[0].wind.gust} mph
 
 </li>
 
@@ -135,12 +133,12 @@ Humidity: {data.list[0].main.humidity} %
 
 </li>
 <li>
-Wind Speed: {data.list[0].main.humidity} mph
+Wind Speed: {data.list[0].wind.speed} mph
 
 </li>
 
 <li>
-Gust: {data.list[0].main.humidity} mph
+Gust: {data.list[0].wind.gust} mph
 
 </li>
 
@@ -165,11 +163,11 @@ Gust: {data.list[0].main.humidity} mph
 
         </li>
         <li>
-        Wind Speed: {data.list[7].main.humidity} mph
+        Wind Speed: {data.list[7].wind.speed} mph
 
         </li>
         <li>
-        Gust: {data.list[7].main.humidity} mph
+        Gust: {data.list[7].wind.gust} mph
 
         </li>
 
@@ -194,11 +192,11 @@ Gust: {data.list[0].main.humidity} mph
 
         </li>
         <li>
-        Wind Speed: {data.list[16].main.humidity} mph
+        Wind Speed: {data.list[16].wind.speed} mph
 
         </li>
         <li>
-        Gust: {data.list[16].main.humidity} mph
+        Gust: {data.list[16].wind.gust} mph
 
         </li>
 
@@ -223,11 +221,11 @@ Gust: {data.list[0].main.humidity} mph
 
         </li>
         <li>
-        Wind Speed: {data.list[25].main.humidity} mph
+        Wind Speed: {data.list[25].wind.speed} mph
 
         </li>
         <li>
-        Gust: {data.list[25].main.humidity} mph
+        Gust: {data.list[25].wind.gust} mph
 
         </li>
 
@@ -253,11 +251,11 @@ Gust: {data.list[0].main.humidity} mph
 
         </li>
         <li>
-        Wind Speed: {data.list[33].main.humidity} mph
+        Wind Speed: {data.list[33].wind.speed} mph
 
         </li>
         <li>
-        Gust: {data.list[33].main.humidity} mph
+        Gust: {data.list[33].wind.gust} mph
 
         </li>
 
