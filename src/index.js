@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import MainWeather from './MainWeather';
 
 ReactDOM.render(
   <React.StrictMode>
 
-    <App />
+    <MainWeather />
 
   </React.StrictMode>,
   document.getElementById('root')
