@@ -17,7 +17,7 @@ const HeroHeader = () => {
     Welcome to MyWeather!
     </p>
     <p className="subtitle is-7 is-italic">
-     Your #1 U.S. Weather update search site powered by openweather.org!
+     Your #1 U.S. Weather update search site powered by <a href="https://openweathermap.org/">Openweathermap.org!</a>
     </p>
     <p className="is-pulled-right">
     Today's date: {DateTime.now().toFormat('LLLL dd yyyy')}
