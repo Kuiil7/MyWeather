@@ -104,7 +104,7 @@ Gust: {data.list[0].main.humidity} mph
 <hr/>
     <div className="columns  ">
 
-  <div className="column  is-two-thirds-tablet is-half-desktop is-one-third-widescreen is-one-quarter-fullhd  is-justify-content-center">
+  <div className="column  is-justify-content-center">
   <p>
 
 </p>
