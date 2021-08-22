@@ -26,7 +26,7 @@ const HeroHeader2 = () => {
 
 
       function getData () {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+        const url = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 
           axios.get(url)
             .then(function (response) {
@@ -61,7 +61,7 @@ getData();
 <p>
 {moment.utc(data.list[0].dt_txt).format('LLLL').toUpperCase()}
 </p>
-  <img className="has-content-centered has-text-primary" style={{height:"200px"}} src={`https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+  <img className="has-content-centered has-text-primary" style={{height:"200px"}} src={`http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
   <p className="mb-2 has-text-primary">{ data.list[9].weather[0].description.toUpperCase() }</p>
 
@@ -89,7 +89,7 @@ Gust: {data.list[0].wind.gust} mph
 <p className="is-size-2">
 {DateTime.now().toLocaleString() }
 </p>
-  <img className="has-content-centered has-text-primary"  src={`https://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' >
+  <img className="has-content-centered has-text-primary"  src={`http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' >
   </img>
 
 <p className="mb-2 has-text-primary ">{ data.list[9].weather[0].description.toUpperCase() }</p>
@@ -117,7 +117,7 @@ Gust: {data.list[0].wind.gust} mph
 
 {moment( data.list[7].dt_txt).format('L') }
 </p>
-  <img className="has-content-centered has-text-primary" src={`https://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`}  alt='weather icons' >
+  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`}  alt='weather icons' >
   </img>
 <p className="mb-2 has-text-primary">{ data.list[7].weather[0].description.toUpperCase() }</p>
 
@@ -141,7 +141,7 @@ Gust: {data.list[0].wind.gust} mph
   <p className="is-size-2">
 {moment( data.list[15].dt_txt).format('L') }
 </p>
-<img className="has-content-centered has-text-primary" src={`https://openweathermap.org/img/wn/${data.list[15].weather[0].icon}@2x.png`}  alt='weather icons' >
+<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[15].weather[0].icon}@2x.png`}  alt='weather icons' >
 </img>
 
 <p className="mb-2 has-text-primary">{ data.list[15].weather[0].description.toUpperCase() }</p>
@@ -170,7 +170,7 @@ Gust: {data.list[0].wind.gust} mph
 {moment( data.list[23].dt_txt).format('L') }
 </p>
 
-<img className="has-content-centered has-text-primary" src={`https://openweathermap.org/img/wn/${data.list[23].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[23].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
 <p className="mb-2 has-text-primary">{ data.list[23].weather[0].description.toUpperCase() }</p>
 
@@ -196,7 +196,7 @@ Gust: {data.list[0].wind.gust} mph
 {moment( data.list[31].dt_txt).format('L') }
 </p>
 
-  <img className="has-content-centered has-text-primary" src={`https://openweathermap.org/img/wn/${data.list[31].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[31].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
   <p className="mb-2 has-text-primary">{ data.list[31].weather[0].description.toUpperCase() }</p>
 
