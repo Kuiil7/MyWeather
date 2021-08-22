@@ -10,8 +10,8 @@ const HeroHeader = () => {
 
 
   return (
-    <div >
-<section className="hero is-success is-small">
+    < >
+<section className="hero is-success is-small" >
   <div className="hero-body">
     <p className="title">
     Welcome to MyWeather!
@@ -24,7 +24,7 @@ const HeroHeader = () => {
     </p>
   </div>
 </section>
-    </div>
+    </>
   );
 };
 export default HeroHeader;
