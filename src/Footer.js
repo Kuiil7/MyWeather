@@ -2,16 +2,7 @@ import React from "react";
 
 
 const Footer= () => {
-
-
-
-
-
-
   return (
-
-
-
     <footer className="footer has-background-success">
   <div className="content has-text-centered ">
   <p className="has-text-white  is-justify-content-center ">

@@ -3,12 +3,6 @@ import { DateTime } from 'luxon';
 
 
 const HeroHeader = () => {
-
-
-
-
-
-
   return (
     < >
 <section className="hero is-success is-small" >

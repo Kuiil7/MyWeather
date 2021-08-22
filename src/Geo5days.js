@@ -6,7 +6,7 @@ const moment = require('moment');
 require('dotenv').config()
 
 
-const HeroHeader2 = () => {
+const Geo5days = () => {
 
 
   const [lat, setLat] = useState(0);
@@ -225,4 +225,4 @@ Gust: {data.list[0].wind.gust} mph
 </>
   );
 };
-export default HeroHeader2;
+export default Geo5days;
