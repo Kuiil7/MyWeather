@@ -12,7 +12,7 @@ const Footer= () => {
 
 
 
-    <footer className="footer has-background-primary">
+    <footer className="footer has-background-success">
   <div className="content has-text-centered ">
   <p className="has-text-white  is-justify-content-center ">
       MyWeather by <a className="has-text-white " href="https://jgamworks.com">jgamworks.com</a>.
