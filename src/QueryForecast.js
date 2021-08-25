@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import { DateTime } from 'luxon';
-
+import Geo5days from './Geo5days';
 //import { DateTime } from 'luxon';
 //import Likes from './Likes';
 //import useLocalStorageState from 'use-local-storage-state'
@@ -23,6 +23,7 @@ function QueryForecast () {
   const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const [showGeoLoc, setShowGeoLoc] = useState(true);
 
  const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
 
@@ -46,25 +47,8 @@ setIsError(false)
       console.log(result.data)
 
     };
-
-
     fetchData();
   }, [url]);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -85,7 +69,7 @@ setIsError(false)
           onChange={event => setQuery(event.target.value)}
           className="input is-primary mb-2"
           placeholder="enter a keyword"
-
+          onClick={() => setShowGeoLoc(!showGeoLoc)}
         />
    <button className="button is-small is-primary" type="submit">Search</button>
 
@@ -184,8 +168,8 @@ setIsError(false)
 
 
 </div>
-
-
+{showGeoLoc &&
+<Geo5days />}
     </Fragment>
   );
 }
