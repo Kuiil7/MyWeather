@@ -6,7 +6,7 @@ const moment = require('moment');
 require('dotenv').config()
 
 
-const Geo5days = () => {
+const FiveDayForecast = () => {
 
 
   const [lat, setLat] = useState(0);
@@ -46,26 +46,36 @@ getData();
 
   return (
 <>
+<form onSubmit={event => {
 
-    <div id="Geo5Day" className="has-text-centered has-background-primary ">
-    <p className=" is-size-1 mt-5 has-text-white ">
-Current Geolocation:</p>
+      }}>
+
+  <div className="column is-6  is-half is-offset-one-quarter">
+
+   <button className="button is-small is-primary" type="submit">Search</button>
+
+  </div>
+
+  
+ </form>
+
+    <div id="Geo5Day" className="has-text-centered">
     { data.list.slice(0, 1).map(items =>
   <div key={items} >
-<div className=" column   has-text-white ">
-  <p className=" is-size-1 mt-5">
+<div className="box column has-text-primary">
+  <p className=" is-size-1 ">
      {data.city.name}, {data.city.country}
     </p>
-    <p className="subtitle has-text-white">
+    <p className="subtitle has-text-primary">
     Population: {data.city.population.toLocaleString()}
 
     </p>
 <p>
 {moment.utc(data.list[0].dt_txt).format('LLLL').toUpperCase()}
 </p>
-  <img className="has-content-centered has-text-white" style={{height:"200px"}} src={`http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+  <img className="has-content-centered has-text-primary" style={{height:"200px"}} src={`http://openweathermap.org/img/wn/${data.list[0].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
-  <p className="mb- 2 has-text-white">{ data.list[9].weather[0].description.toUpperCase() }</p>
+  <p className="mb-2 has-text-primary">{ data.list[9].weather[0].description.toUpperCase() }</p>
 
     <ul>
 <li className="is-size-2">
@@ -85,8 +95,8 @@ Gust: {data.list[0].wind.gust} mph
 
 </div>
 
-    <div className="columns p-6  is-flex-wrap-wrap has-background-primary ">
-  <div className="column   box has-text-primary  mr-2">
+    <div className="columns p-6  is-flex-wrap-wrap ">
+  <div className="column   box has-text-primary">
 
 <p className="is-size-2">
 {DateTime.now().toLocaleString() }
@@ -114,107 +124,107 @@ Gust: {data.list[0].wind.gust} mph
 </ul>
   </div>
 
-  <div className="column box  has-text-primary mr-2">
+  <div className="column box  has-text-primary">
   <p className="is-size-2">
 
-{moment( data.list[8].dt_txt).format('L') }
+{moment( data.list[7].dt_txt).format('L') }
 </p>
-  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[8].weather[0].icon}@2x.png`}  alt='weather icons' >
+  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[7].weather[0].icon}@2x.png`}  alt='weather icons' >
   </img>
-<p className="mb-2 has-text-primary">{ data.list[8].weather[0].description.toUpperCase() }</p>
+<p className="mb-2 has-text-primary">{ data.list[7].weather[0].description.toUpperCase() }</p>
 
 <ul>
   <li className="is-size-2">
-  {data.list[8].main.temp}   &#8457;
+  {data.list[7].main.temp}   &#8457;
   </li>
    <li>
-        Humidity: {data.list[8].main.humidity} %
+        Humidity: {data.list[7].main.humidity} %
         </li>
         <li>
-        Wind Speed: {data.list[8].wind.speed} mph
+        Wind Speed: {data.list[7].wind.speed} mph
         </li>
         <li>
-        Gust: {data.list[8].wind.gust} mph
+        Gust: {data.list[7].wind.gust} mph
         </li>
 </ul>
   </div>
 
-  <div className="column box has-text-primary mr-2 ">
+  <div className="column box has-text-primary ">
   <p className="is-size-2">
-{moment( data.list[16].dt_txt).format('L') }
+{moment( data.list[15].dt_txt).format('L') }
 </p>
-<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[16].weather[0].icon}@2x.png`}  alt='weather icons' >
+<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[15].weather[0].icon}@2x.png`}  alt='weather icons' >
 </img>
 
-<p className="mb-2 has-text-primary">{ data.list[16].weather[0].description.toUpperCase() }</p>
+<p className="mb-2 has-text-primary">{ data.list[15].weather[0].description.toUpperCase() }</p>
 
 
 <ul>
   <li className="is-size-2">
-  {data.list[16].main.temp}   &#8457;
+  {data.list[15].main.temp}   &#8457;
   </li>
    <li>
-   Humidity: {data.list[16].main.humidity} %
+   Humidity: {data.list[15].main.humidity} %
  </li>
    <li>
- Wind Speed: {data.list[16].wind.speed} mph
+ Wind Speed: {data.list[15].wind.speed} mph
 </li>
 <li>
-   Gust: {data.list[16].wind.gust} mph
+   Gust: {data.list[15].wind.gust} mph
         </li>
 </ul>
 
   </div>
 
-  <div className="column box has-text-primary mr-2">
+  <div className="column box has-text-primary">
 
   <p className="is-size-2">
-{moment( data.list[24].dt_txt).format('L') }
+{moment( data.list[23].dt_txt).format('L') }
 </p>
 
-<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[24].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+<img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[23].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
-<p className="mb-2 has-text-primary">{ data.list[24].weather[0].description.toUpperCase() }</p>
+<p className="mb-2 has-text-primary">{ data.list[23].weather[0].description.toUpperCase() }</p>
 
   <ul>
   <li className="is-size-2">
-  {data.list[24].main.temp}   &#8457;
+  {data.list[23].main.temp}   &#8457;
   </li>
    <li>
-       Humidity: {data.list[24].main.humidity} %
+       Humidity: {data.list[23].main.humidity} %
         </li>
 
   <li>
-        Wind Speed: {data.list[24].wind.speed} mph
+        Wind Speed: {data.list[23].wind.speed} mph
         </li>
         <li>
-        Gust: {data.list[24].wind.gust} mph
+        Gust: {data.list[23].wind.gust} mph
         </li>
 </ul>
   </div>
 
   <div className="column box has-text-primary mb-5">
   <p className="is-size-2">
-{moment( data.list[32].dt_txt).format('L') }
+{moment( data.list[31].dt_txt).format('L') }
 </p>
 
-  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[32].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
+  <img className="has-content-centered has-text-primary" src={`http://openweathermap.org/img/wn/${data.list[31].weather[0].icon}@2x.png`}  alt='weather icons' ></img>
 
-  <p className="mb-2 has-text-primary">{ data.list[32].weather[0].description.toUpperCase() }</p>
+  <p className="mb-2 has-text-primary">{ data.list[31].weather[0].description.toUpperCase() }</p>
 
 <ul>
   <li className="is-size-2">
-  {data.list[32].main.temp}   &#8457;
+  {data.list[31].main.temp}   &#8457;
   </li>
    <li>
-        Humidity: {data.list[32].main.humidity} %
+        Humidity: {data.list[31].main.humidity} %
 
         </li>
         <li>
-        Wind Speed: {data.list[32].wind.speed} mph
+        Wind Speed: {data.list[31].wind.speed} mph
         </li>
         <li>
-        Gust: {data.list[32].wind.gust} mph
+        Gust: {data.list[31].wind.gust} mph
         </li>
 </ul>
   </div>
@@ -228,4 +238,4 @@ Gust: {data.list[0].wind.gust} mph
 </>
   );
 };
-export default Geo5days;
+export default FiveDayForecast;

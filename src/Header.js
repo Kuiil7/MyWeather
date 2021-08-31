@@ -5,7 +5,7 @@ import { DateTime } from 'luxon';
 const HeroHeader = () => {
   return (
     < >
-<section className="hero is-success is-small" >
+<section className="hero is-primary is-small" >
   <div className="hero-body">
     <p className="title">
     Welcome to MyWeather!
