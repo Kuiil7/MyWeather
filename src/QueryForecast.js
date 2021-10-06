@@ -7,7 +7,7 @@ const moment = require('moment');
 require('dotenv').config()
 
 
-function QueryForecast () {
+function Forecast () {
 
   const [data, setData] = useState({ list: [] });
 
@@ -115,7 +115,7 @@ setIsError(false)
    Cloudiness: {data.list[0].clouds.all} %
 </p>
     <p className="mb-2 is-size-4">
-    Wind Speed: {data.list[0].wind.speed} mph
+    Wind: {data.list[0].wind.speed} mph
 </p>
 
 <p className="is-size-4">
@@ -165,7 +165,7 @@ setIsError(false)
 Humidity: {data.list[0].main.humidity} %
 </li>
 <li>
-Wind Speed: {data.list[0].wind.speed} mph
+Wind: {data.list[0].wind.speed} mph
 </li>
 <li>
 Gust: {data.list[0].wind.gust} mph
@@ -191,7 +191,7 @@ Gust: {data.list[0].wind.gust} mph
         Humidity: {data.list[8].main.humidity} %
         </li>
         <li>
-        Wind Speed: {data.list[8].wind.speed} mph
+        Wind: {data.list[8].wind.speed} mph
         </li>
         <li>
         Gust: {data.list[8].wind.gust} mph
@@ -217,7 +217,7 @@ Gust: {data.list[0].wind.gust} mph
    Humidity: {data.list[16].main.humidity} %
  </li>
    <li>
- Wind Speed: {data.list[16].wind.speed} mph
+ Wind: {data.list[16].wind.speed} mph
 </li>
 <li>
    Gust: {data.list[16].wind.gust} mph
@@ -245,7 +245,7 @@ Gust: {data.list[0].wind.gust} mph
         </li>
 
   <li>
-        Wind Speed: {data.list[24].wind.speed} mph
+        Wind: {data.list[24].wind.speed} mph
         </li>
         <li>
         Gust: {data.list[24].wind.gust} mph
@@ -271,7 +271,7 @@ Gust: {data.list[0].wind.gust} mph
 
         </li>
         <li>
-        Wind Speed: {data.list[32].wind.speed} mph
+        Wind: {data.list[32].wind.speed} mph
         </li>
         <li>
         Gust: {data.list[32].wind.gust} mph
@@ -299,4 +299,4 @@ Gust: {data.list[0].wind.gust} mph
   );
 }
 
-export default QueryForecast;
+export default Forecast;

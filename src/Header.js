@@ -2,10 +2,10 @@ import React from "react";
 import { DateTime } from 'luxon';
 
 
-const HeroHeader = () => {
+const Header = () => {
   return (
     < >
-<section className="hero is-primary is-small" >
+<section className="Header is-primary is-small" >
   <div className="hero-body">
     <p className="title">
     Welcome to MyWeather!
@@ -21,4 +21,4 @@ const HeroHeader = () => {
     </>
   );
 };
-export default HeroHeader;
+export default Header;
