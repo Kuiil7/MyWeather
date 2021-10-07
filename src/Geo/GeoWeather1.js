@@ -5,9 +5,9 @@ const GeoWeather1= (props) => {
   return (
 
     < >
-<div className ="columns  has-text-white  is-mobile ">
+<div className ="columns  is-mobile has-text-weight-light ">
   <div class="column">
-  <p className=" has-text-weight-bold is-size-6">
+  <p className=" is-size-6">
   Humidity:
     </p>
     <p className="  is-size-6">
@@ -15,7 +15,7 @@ const GeoWeather1= (props) => {
     </p>
   </div>
   <div className ="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
   Cloudiness:
 </p>
  <p className="  is-size-6 ">
@@ -23,7 +23,7 @@ const GeoWeather1= (props) => {
 </p>
   </div>
   <div className ="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
     Wind:
 </p>
 <p className="  is-size-6 ">
@@ -31,7 +31,7 @@ const GeoWeather1= (props) => {
 </p>
   </div>
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
 Feels like:
     </p>
     <p className=" is-size-6 ">

@@ -4,11 +4,9 @@ import React from "react";
 const GeoWeather2= (props) => {
   return (
 <>
-<div className="columns  has-text-white  is-mobile ">
-
-
+<div className ="columns  is-mobile has-text-weight-light ">
 <div className="column">
-<p className="has-text-weight-bold is-size-6 ">
+<p className=" is-size-6 ">
     Temp Max:
 </p>
 <p className=" is-size-6 ">
@@ -17,7 +15,7 @@ const GeoWeather2= (props) => {
   </div>
 
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
        Temp Min:
     </p>
     <p className=" is-size-6 ">
@@ -26,7 +24,7 @@ const GeoWeather2= (props) => {
   </div>
 
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
 Sunset:
 </p>
 <p className=" is-size-6 ">
@@ -35,7 +33,7 @@ Sunset:
   </div>
 
   <div className="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className="  is-size-6 ">
  Sunrise:
 </p>
 <p className=" is-size-6 ">
