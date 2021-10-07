@@ -2,7 +2,6 @@ import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import GeoThumbnail from './GeoThumbnails';
 import GeoWeather1 from './GeoWeather1'
-import GeoWeather2 from './GeoWeather2'
 import GeoMobileScrolling from './GeoMobileScrolling';
 import { DateTime } from 'luxon';
 
@@ -68,7 +67,7 @@ getData();
 
   <div key={mainIndex}>
 
-<div className="columns is-mobile px-2 ">
+<div className="columns is-mobile pl-3 ">
   <div className="column is-mobile is-inverted
   has-text-weight-light
    " >
@@ -76,7 +75,7 @@ getData();
  <p class="subtitle is-6  has-text-white  has-text-weight-light">
   {moment.utc(data.city.dt).format('ll')}
     </p>
-    <p className="title is-3 has-text-weight-bold has-text-white   ">
+    <p className="title is-4  has-text-weight-bold has-text-white   ">
     {data.city.name}, {data.city.country}
     </p>
 
@@ -89,7 +88,7 @@ getData();
  </div>
   </div>
 
-<div className='column'>
+<div className='column '>
 
   <GeoThumbnail
 description={data.list[9].weather[0].description.toUpperCase()}
@@ -98,7 +97,7 @@ geoWeather_icon={data.list[7].weather[0].icon}
 </div>
 </div>
 
-  <div class="column is-three-fifths
+  <div className="column is-three-fifths
 is-offset-one-fifth">
   <GeoWeather1
 geoWeather_icon={data.list[0].weather[0].icon}
@@ -114,20 +113,7 @@ sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
 
-<GeoWeather2
-geoWeather_icon={data.list[7].weather[0].icon}
-description={data.list[9].weather[0].description}
-dt={data.list[0].dt_txt}
-humidity={data.list[0].main.humidity}
-clouds_all={data.list[0].clouds.all}
-wind_speed={data.list[0].wind.speed}
-feels_like={data.list[0].main.feels_like}
-temp_max={data.list[0].main.temp_max}
-temp_min={data.list[0].main.temp_min}
-sunrise={moment.unix(data.city.sunrise).format('LTS')}
-sunset={moment.unix(data.city.sunset).format('LTS')}
-weather_icon={data.list[7].weather[0].icon}
-/>
+
   </div>
 
 
@@ -135,10 +121,17 @@ weather_icon={data.list[7].weather[0].icon}
 
 
  </div>
+<div> .
+</div>
+  <div className="column
 
-  <div className="column is-three-fifths
-is-offset-one-fifth">
+  is-11
+is-offset-1
 
+">
+
+
+<p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
   <GeoMobileScrolling
 name={data.city.name}
 country={data.city.country}

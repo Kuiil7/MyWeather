@@ -78,10 +78,10 @@ setIsError(false)
 
 <div key={queryItems}>
 
-<div class="columns has-background-primary p-5  ">
+<div className="columns has-background-primary p-5  ">
 
-  <div class="column  has-text-centered  ">
-  <p class="subtitle is-size-1  mb-0 has-text-white">
+  <div className="column  has-text-centered  ">
+  <p className="subtitle is-size-1  mb-0 has-text-white">
  {data.city.name}, {data.city.country}
 </p>
 <p className="subtitle  has-text-white ">
@@ -97,7 +97,7 @@ setIsError(false)
   </div>
 
 
-  <div class="column has-text-white has-text-centered">
+  <div classname="column has-text-white has-text-centered">
    <p className="title is-size-1  mb-0 has-text-white" style={{fontSize:'60px'}}>
 {data.list[0].main.temp} &#8457;
 </p>
@@ -280,9 +280,7 @@ Gust: {data.list[0].wind.gust} mph
   </div>
 </div>
 </div>
-
  ))}
-
  </div>
 
         </div>

@@ -5,22 +5,21 @@ const MobileScrolling
  = (props) => {
   return (
     < >
-
-<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>.
-
 <div className="
 has-text-weight-light
 columns
 is-mobile
 scrolling-wrapper
-
+scrollbar-hidden
  ">
  <div className="column
 
 is-6-mobile
-is-4-tablet
-is-3-widescreen
-is-3-fullhd
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-2-desktop
+
 "
 >
 
@@ -63,11 +62,11 @@ is-3-fullhd
 
 
   <div className="column
-
 is-6-mobile
-is-4-tablet
-is-3-widescreen
-is-3-fullhd
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-2-desktop
    ">
   <div className="box ">
 <div className="has-text-centered ">
@@ -105,9 +104,12 @@ is-3-fullhd
   <div className="column
 
 is-6-mobile
-is-4-tablet
-is-3-widescreen
-is-3-fullhd
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-2-desktop
+
+
    ">
   <div className="box">
   <div className="has-text-centered">
@@ -143,9 +145,11 @@ is-3-fullhd
 
 
 is-6-mobile
-is-4-tablet
-is-3-widescreen
-is-3-fullhd   ">
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-2-desktop
+   ">
 
 
 
@@ -189,11 +193,11 @@ is-3-fullhd   ">
   </div>
   <div className="column
 
-
 is-6-mobile
-is-4-tablet
-is-3-widescreen
-is-3-fullhd
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-2-desktop
   ">
     <div className="box  ">
 

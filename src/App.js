@@ -3,7 +3,6 @@ import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import Geo5days from './Geo/Geo5days';
 import { DateTime } from 'luxon';
-import Main from './Main'
 import MobileScrolling from './MobileScrolling';
 import WeatherList from './WeatherList1';
 import WeatherList2 from './WeatherList2';
@@ -74,9 +73,8 @@ setIsError(false)
         is-jusify-content-center
         has-text-white
         ">
+
  <div className="columns ">
-
-
 <div className="column ">
 
 
@@ -85,15 +83,8 @@ setIsError(false)
 
 <div key={mainIndex} >
 
-
-
-
-
-
 <div class="columns is-mobile">
   <div class="column">
-
-
   <div className="is-pulled-right mt-5">
  <p class="subtitle has-text-weight-light is-6  has-text-white ">
   {moment.utc(data.city.dt).format('ll')}
@@ -109,7 +100,6 @@ setIsError(false)
 {data.list[0].main.temp}°F
 </p>
  </div>
-
   </div>
 
   <div className='column has-text-centered is-pulled-left'>
@@ -119,10 +109,6 @@ weather_icon={data.list[7].weather[0].icon}
 />
 </div>
 </div>
-
-
-
-
 
 <div class="column is-three-fifths
 is-offset-one-fifth">
@@ -156,9 +142,11 @@ weather_icon={data.list[7].weather[0].icon}
 />
   </div>
 
-  <div className="column is-three-fifths
-is-offset-one-fifth">
+  <div className="column is-11
+is-offset-1
+">
 
+<p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
   <MobileScrolling
 name={data.city.name}
 country={data.city.country}
