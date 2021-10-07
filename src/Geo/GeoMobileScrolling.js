@@ -42,10 +42,10 @@ is-2-desktop
 </div>
 <ul  className="has-text-primary ">
 <li className="is-size-3 has-text-centered mt-3  " >
-  {props.day_1_main_temp}°F
+  {props.day_1_main_temp} °F
   </li>
    <li>
-       Humidity: {props.day_1_humidity}%
+       Humidity: {props.day_1_humidity} %
         </li>
 
   <li>
@@ -84,16 +84,16 @@ is-2-desktop
 
 <ul  className="has-text-primary ">
   <li className="is-size-3 has-text-centered mt-3" >
-  {props.day_2_main_temp}°F
+  {props.day_2_main_temp} °F
   </li>
    <li>
-   Humidity: {props.day_2_humidity}%
+   Humidity: {props.day_2_humidity} %
   </li>
   <li>
   Wind: {props.day_2_wind_speed}mph
 </li>
   <li>
-  Gust: {props.day_2_wind_gust}mph
+  Gust: {props.day_2_wind_gust} mph
 </li>
 </ul>
 
@@ -125,16 +125,16 @@ is-2-desktop
 
 <ul  className="has-text-primary ">
 <li className="is-size-3 has-text-centered mt-3" >
-  {props.day_3_main_temp}°F
+  {props.day_3_main_temp} °F
   </li>
    <li>
-       Humidity: {props.day_3_humidity}%
+       Humidity: {props.day_3_humidity} %
         </li>
   <li>
-       Wind: {props.day_3_wind_speed}mph
+       Wind: {props.day_3_wind_speed} mph
         </li>
         <li>
-        Gust: {props.day_3_wind_gust}mph
+        Gust: {props.day_3_wind_gust} mph
         </li>
 </ul>
 
@@ -170,17 +170,17 @@ is-2-desktop
 </div>
 <ul  className="has-text-primary ">
 <li className="is-size-3 has-text-centered mt-3" >
-  {props.day_4_main_temp}°F
+  {props.day_4_main_temp} °F
   </li>
    <li>
-       Humidity: {props.day_4_humidity}%
+       Humidity: {props.day_4_humidity} %
         </li>
 
   <li>
-       Wind: {props.day_4_wind_speed}mph
+       Wind: {props.day_4_wind_speed} mph
         </li>
         <li>
-        Gust: {props.day_4_wind_gust}mph
+        Gust: {props.day_4_wind_gust} mph
         </li>
 </ul>
 
@@ -216,17 +216,17 @@ is-2-desktop
 
 <ul  className="has-text-primary ">
 <li className="is-size-3 has-text-centered mt-3" >
-  {props.day_5_main_temp}°F
+  {props.day_5_main_temp} °F
   </li>
    <li>
-       Humidity: {props.day_5_humidity}%
+       Humidity: {props.day_5_humidity} %
   </li>
 
   <li>
-       Wind: {props.day_5_wind_speed}mph
+       Wind: {props.day_5_wind_speed} mph
   </li>
   <li>
-        Gust: {props.day_5_wind_gust}mph
+        Gust: {props.day_5_wind_gust} mph
    </li>
 </ul>
 
