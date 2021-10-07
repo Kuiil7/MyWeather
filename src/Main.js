@@ -1,6 +1,6 @@
 import React from "react";
 import Thumbnail from './WeatherIcon';
-import WeatherList from './WeatherList'
+import WeatherList from './WeatherList1'
 import WeatherList2 from './WeatherList2'
 
 

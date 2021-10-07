@@ -60,7 +60,7 @@ getData();
 <div className="container is-justify-content-center  has-text-white" >
 
   <div className="columns ">
-  <div className="column  has-background-primary">
+  <div className="column  ">
 
 
 
@@ -73,7 +73,7 @@ getData();
   has-text-weight-light
    " >
  <div className="is-pulled-right mt-5">
- <p class="subtitle is-6  has-text-white ">
+ <p class="subtitle is-6  has-text-white  has-text-weight-light">
   {moment.utc(data.city.dt).format('ll')}
     </p>
     <p className="title is-3 has-text-weight-bold has-text-white   ">
@@ -89,16 +89,19 @@ getData();
  </div>
   </div>
 
-<GeoThumbnail
+<div className='column'>
+
+  <GeoThumbnail
 description={data.list[9].weather[0].description.toUpperCase()}
 geoWeather_icon={data.list[7].weather[0].icon}
 />
+</div>
 </div>
 
   <div class="column is-three-fifths
 is-offset-one-fifth">
   <GeoWeather1
-geoWeather_icon={data.list[7].weather[0].icon}
+geoWeather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
 dt={data.list[0].dt_txt}
 humidity={data.list[0].main.humidity}
@@ -109,7 +112,6 @@ temp_max={data.list[0].main.temp_max}
 temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
-weather_icon={data.list[7].weather[0].icon}
 />
 
 <GeoWeather2
@@ -130,13 +132,12 @@ weather_icon={data.list[7].weather[0].icon}
 
 
  <div>
- <hr/>
+
 
  </div>
 
   <div className="column is-three-fifths
 is-offset-one-fifth">
-
 
   <GeoMobileScrolling
 name={data.city.name}

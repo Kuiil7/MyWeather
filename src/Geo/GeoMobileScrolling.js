@@ -6,6 +6,7 @@ const MobileScrolling
   return (
     < >
 
+<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>.
 
 <div className="
 has-text-weight-light
@@ -26,6 +27,7 @@ is-3-fullhd
 
 
   <div className="box ">
+
 <div className="has-text-centered">
 
 <p className=" has-text-primary">

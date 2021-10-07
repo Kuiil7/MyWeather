@@ -2,12 +2,14 @@ import React from "react";
 
 
 
-const WeatherList = (props) => {
+const WeatherList1 = (props) => {
   return (
     < >
-<div className="columns  has-text-white  is-mobile ">
-  <div className="column">
-  <p classNameName=" has-text-weight-bold is-size-6">
+<div className="columns  has-text-white has-text-weight-light
+has-text-weight-light
+   is-mobile ">
+  <div className="column  ">
+  <p classNameName=" is-size-6">
   Humidity:
     </p>
     <p className="  is-size-6">
@@ -16,7 +18,7 @@ const WeatherList = (props) => {
   </div>
 
   <div className="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
   Cloudiness:
 </p>
  <p className="  is-size-6 ">
@@ -24,7 +26,7 @@ const WeatherList = (props) => {
 </p>
   </div>
   <div className="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
     Wind:
 </p>
 <p className="  is-size-6 ">
@@ -33,7 +35,7 @@ const WeatherList = (props) => {
   </div>
 
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className="is-size-6 ">
 Feels like:
     </p>
     <p className=" is-size-6 ">
@@ -46,4 +48,4 @@ Feels like:
     </>
   );
 };
-export default WeatherList;
+export default WeatherList1;

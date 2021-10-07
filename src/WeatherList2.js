@@ -5,11 +5,12 @@ import React from "react";
 const WeatherList = (props) => {
   return (
     < >
-<div className="columns  has-text-white  is-mobile ">
-
+<div className="columns  has-text-white has-text-weight-light
+has-text-weight-light
+   is-mobile ">
 
 <div className="column">
-<p className="has-text-weight-bold is-size-6 ">
+<p className="is-size-6 ">
     Temp Max:
 </p>
 <p className=" is-size-6 ">
@@ -18,7 +19,7 @@ const WeatherList = (props) => {
   </div>
 
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className="is-size-6 ">
        Temp Min:
     </p>
     <p className=" is-size-6 ">
@@ -27,7 +28,7 @@ const WeatherList = (props) => {
   </div>
 
   <div className="column">
-  <p className="has-text-weight-bold is-size-6 ">
+  <p className="is-size-6 ">
 Sunset:
 </p>
 <p className=" is-size-6 ">
@@ -36,7 +37,7 @@ Sunset:
   </div>
 
   <div className="column">
-  <p className=" has-text-weight-bold is-size-6 ">
+  <p className=" is-size-6 ">
  Sunrise:
 </p>
 <p className=" is-size-6 ">
