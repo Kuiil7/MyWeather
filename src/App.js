@@ -1,12 +1,11 @@
 import './App.css';
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
-import Geo5days from './Geo/Geo5days';
+import Geo5days from './Geo/GeoMain';
 import { DateTime } from 'luxon';
-import MobileScrolling from './MobileScrolling';
-import WeatherList from './WeatherList1';
-import WeatherList2 from './WeatherList2';
-import Thumbnail from './Thumbnails';
+import MobileScrolling from './QuerySearch/MobileScrolling';
+import WeatherList from './QuerySearch/WeatherList1';
+import MainTemp from './QuerySearch/MainTemp';
 
 const moment = require('moment');
 require('moment-timezone');
@@ -83,37 +82,36 @@ setIsError(false)
 
 <div key={mainIndex} >
 
-<div class="columns is-mobile">
-  <div class="column">
-  <div className="is-pulled-right mt-5">
- <p class="subtitle has-text-weight-light is-6  has-text-white ">
-  {moment.utc(data.city.dt).format('ll')}
-    </p>
-    <p className="title is-3 has-text-weight-bold has-text-white   ">
-    {data.city.name}, {data.city.country}
-    </p>
 
-    <p className="subtitle is-6 has-text-weight-light has-text-white ">
-    Population: {data.city.population.toLocaleString()}    </p>
+<div class="column is-three-fifths
+is-offset-one-fifth">
 
-    <p className=" title is-size-2 mb-4-desktop has-text-white ">
-{data.list[0].main.temp}°F
-</p>
- </div>
+
+
+  <MainTemp
+name={data.city.name}
+country={data.city.country}
+population={data.city.population.toLocaleString()}
+description={data.list[0].weather[0].description}
+main_temp={data.list[0].main.temp}
+dt={DateTime.now(data.list[0].dt_txt).toLocaleString()}
+humidity={data.list[0].main.humidity}
+clouds_all={data.list[0].clouds.all}
+wind_speed={data.list[0].wind.speed}
+feels_like={data.list[0].main.feels_like}
+temp_max={data.list[0].main.temp_max}
+temp_min={data.list[0].main.temp_min}
+sunrise={moment.unix(data.city.sunrise).format('LTS')}
+sunset={moment.unix(data.city.sunset).format('LTS')}
+weather_icon={data.list[0].weather[0].icon}
+
+  />
   </div>
-
-  <div className='column has-text-centered is-pulled-left'>
-<Thumbnail
-description={data.list[9].weather[0].description.toUpperCase()}
-weather_icon={data.list[7].weather[0].icon}
-/>
-</div>
-</div>
 
 <div class="column is-three-fifths
 is-offset-one-fifth">
   <WeatherList
-geoWeather_icon={data.list[0].weather[0].icon}
+weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
 dt={data.list[0].dt_txt}
 humidity={data.list[0].main.humidity}
@@ -126,20 +124,7 @@ sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
 
-<WeatherList2
-geoWeather_icon={data.list[7].weather[0].icon}
-description={data.list[9].weather[0].description}
-dt={data.list[0].dt_txt}
-humidity={data.list[0].main.humidity}
-clouds_all={data.list[0].clouds.all}
-wind_speed={data.list[0].wind.speed}
-feels_like={data.list[0].main.feels_like}
-temp_max={data.list[0].main.temp_max}
-temp_min={data.list[0].main.temp_min}
-sunrise={moment.unix(data.city.sunrise).format('LTS')}
-sunset={moment.unix(data.city.sunset).format('LTS')}
-weather_icon={data.list[7].weather[0].icon}
-/>
+
   </div>
 
   <div className="column is-11

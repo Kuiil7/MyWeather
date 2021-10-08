@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const Thumbnails= (props) => {
+const WeatherIcons= (props) => {
   return (
     < >
  <div className="column is-pulled-left"  >
@@ -19,4 +19,4 @@ alt='weather icons' >
     </>
   );
 };
-export default Thumbnails;
+export default WeatherIcons;

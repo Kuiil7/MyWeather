@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import GeoThumbnail from './GeoThumbnails';
-import GeoWeather1 from './GeoWeather1'
+import GeoWeather1 from './GeoWeatherList'
 import GeoMobileScrolling from './GeoMobileScrolling';
 import { DateTime } from 'luxon';
 
@@ -12,7 +12,7 @@ const moment = require('moment');
 require('dotenv').config()
 
 
-const Geo5days = (props) => {
+const GeoMain = (props) => {
 
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
@@ -224,4 +224,4 @@ day_5_wind_gust={data.list[32].wind.gust}
 </>
   );
 };
-export default Geo5days;
+export default GeoMain;

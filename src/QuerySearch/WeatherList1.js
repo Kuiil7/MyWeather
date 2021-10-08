@@ -5,9 +5,8 @@ import React from "react";
 const WeatherList1 = (props) => {
   return (
     < >
-<div className="columns  has-text-white has-text-weight-light
-has-text-weight-light
-   is-mobile ">
+<div className ="columns  is-mobile has-text-weight-light is-flex-wrap-wrap px-3">
+
   <div className="column  ">
   <p classNameName=" is-size-6">
   Humidity:
@@ -30,7 +29,7 @@ has-text-weight-light
     Wind:
 </p>
 <p className="  is-size-6 ">
-     {props.wind_speed}mph
+     {props.wind_speed} mph
 </p>
   </div>
 

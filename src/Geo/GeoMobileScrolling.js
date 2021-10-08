@@ -26,7 +26,7 @@ is-2-desktop
 
 
 
-  <div className="box ">
+  <div className="box px-2">
 
 <div className="has-text-centered">
 
@@ -70,7 +70,7 @@ is-2-widescreen
 is-2-fullhd
 is-2-desktop
    ">
-  <div className="box ">
+  <div className="box px-2">
 <div className="has-text-centered ">
 
 <p className=" has-text-primary">
@@ -111,7 +111,7 @@ is-2-widescreen
 is-2-fullhd
 is-2-desktop
    ">
-  <div className="box">
+  <div className="box px-2">
   <div className="has-text-centered">
 
 <p className=" has-text-primary">
@@ -154,7 +154,7 @@ is-2-desktop
 
 
 
-    <div className="box">
+    <div className="box px-2">
  <div className="has-text-centered">
 
 <p className=" has-text-primary">
@@ -201,7 +201,7 @@ is-2-widescreen
 is-2-fullhd
 is-2-desktop
   ">
-    <div className="box  ">
+    <div className="box px-2 ">
 
     <div className="has-text-centered ">
 

@@ -1,11 +1,11 @@
 import React from "react";
 
 
-const GeoWeather1= (props) => {
+const GeoWeatherList= (props) => {
   return (
 
     < >
-<div className ="columns  is-mobile has-text-weight-light is-flex-wrap-wrap ">
+<div className ="columns  is-mobile has-text-weight-light is-flex-wrap-wrap px-3">
   <div class="column">
   <p className=" is-size-6">
   Humidity:
@@ -24,10 +24,10 @@ const GeoWeather1= (props) => {
   </div>
   <div className ="column">
   <p className=" is-size-6 ">
-    Wind:
+    Wind Speed:
 </p>
 <p className="  is-size-6 ">
-     {props.wind_speed}mph
+     {props.wind_speed} mph
 </p>
   </div>
   <div className="column">
@@ -77,4 +77,4 @@ Sunset:
     </>
   );
 };
-export default GeoWeather1;
+export default GeoWeatherList;
