@@ -1,7 +1,7 @@
 import './App.css';
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
-import Geo5days from './Geo/GeoMain';
+import LatLon from './Geo/LatLon';
 import { DateTime } from 'luxon';
 import MobileScrolling from './QuerySearch/MobileScrolling';
 import WeatherList from './QuerySearch/WeatherList1';
@@ -214,7 +214,7 @@ day_5_wind_gust={data.list[32].wind.gust}
 
       )}
 {showGeoLoc &&
-<Geo5days />}
+<LatLon />}
   </Fragment>
 
     </div>

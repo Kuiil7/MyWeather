@@ -1,9 +1,8 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import GeoThumbnail from './GeoThumbnails';
-import GeoWeather1 from './GeoWeatherList'
-import GeoMobileScrolling from './GeoMobileScrolling';
 import { DateTime } from 'luxon';
+import WeatherIcons from '../Icons/WeatherIcons';
+import LatLonMobileScrolling from '././LatLonMobileScrolling';
 
 
 const moment = require('moment');
@@ -12,7 +11,7 @@ const moment = require('moment');
 require('dotenv').config()
 
 
-const GeoMain = (props) => {
+const LatLon = (props) => {
 
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
@@ -90,49 +89,16 @@ getData();
 
 <div className='column '>
 
-  <GeoThumbnail
-description={data.list[9].weather[0].description.toUpperCase()}
-geoWeather_icon={data.list[7].weather[0].icon}
-/>
-</div>
-</div>
-
-  <div className="column is-three-fifths
-is-offset-one-fifth">
-  <GeoWeather1
-geoWeather_icon={data.list[0].weather[0].icon}
+  <WeatherIcons
+weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
-dt={data.list[0].dt_txt}
-humidity={data.list[0].main.humidity}
-clouds_all={data.list[0].clouds.all}
-wind_speed={data.list[0].wind.speed}
-feels_like={data.list[0].main.feels_like}
-temp_max={data.list[0].main.temp_max}
-temp_min={data.list[0].main.temp_min}
-sunrise={moment.unix(data.city.sunrise).format('LTS')}
-sunset={moment.unix(data.city.sunset).format('LTS')}
 />
-
-
-  </div>
-
-
- <div>
-
-
- </div>
-<div> .
 </div>
-  <div className="column
-
-  is-11
-is-offset-1
-
-">
-
+</div>
 
 <p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
-  <GeoMobileScrolling
+
+  <LatLonMobileScrolling
 name={data.city.name}
 country={data.city.country}
 population={data.city.population.toLocaleString()}
@@ -201,7 +167,16 @@ day_5_wind_gust={data.list[32].wind.gust}
 
 
 />
-  </div>
+
+
+
+
+ <div>
+
+
+ </div>
+<div> 
+</div>
 
 
 
@@ -224,4 +199,4 @@ day_5_wind_gust={data.list[32].wind.gust}
 </>
   );
 };
-export default GeoMain;
+export default LatLon;

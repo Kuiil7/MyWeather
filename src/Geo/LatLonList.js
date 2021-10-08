@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const GeoWeatherList= (props) => {
+const LatLonList= (props) => {
   return (
 
     < >
@@ -77,4 +77,4 @@ Sunset:
     </>
   );
 };
-export default GeoWeatherList;
+export default LatLonList;
