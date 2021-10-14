@@ -2,16 +2,16 @@ import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import { DateTime } from 'luxon';
 import WeatherIcons from '../Icons/WeatherIcons';
-import LatLonMobileScrolling from '././LatLonMobileScrolling';
-
+import LatLonMobileScrolling from './LatLonMobileScrolling';
+import WeatherList1 from '../QuerySearch/WeatherList1';
+import MainTemp from '../QuerySearch/MainTemp';
 
 const moment = require('moment');
-
 
 require('dotenv').config()
 
 
-const LatLon = (props) => {
+const LatLon = () => {
 
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
@@ -30,12 +30,16 @@ const LatLon = (props) => {
 
 
       function getData () {
-        const url = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+
+            const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
+
+        const url = `${baseWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+
 
           axios.get(url)
             .then(function (response) {
               setData(response.data);
-              console.log(response.data)
+              console.log(response.data);
             })
             .catch(function (error) {
               return error
@@ -49,54 +53,79 @@ getData();
 
 
 
-
-
-
   return (
 <>
-
 <div className="container is-justify-content-center  has-text-white" >
+
+
+
 
   <div className="columns ">
   <div className="column  ">
-
-
 
 {data.list && data.list.slice(0,1).map( mainIndex => (
 
   <div key={mainIndex}>
 
-<div className="columns is-mobile pl-3 ">
-  <div className="column is-mobile is-inverted
-  has-text-weight-light
-   " >
- <div className="is-pulled-right mt-5">
- <p class="subtitle is-6  has-text-white  has-text-weight-light">
-  {moment.utc(data.city.dt).format('ll')}
-    </p>
-    <p className="title is-4  has-text-weight-bold has-text-white   ">
-    {data.city.name}, {data.city.country}
-    </p>
 
-    <p className="subtitle is-6 has-text-weight-light has-text-white ">
-    Population: {data.city.population.toLocaleString()}    </p>
+<div class="columns is-mobile is-justify-content-center">
+  <div class="column">
+<div className="is-pulled-right">
 
-    <p className=" title is-size-2 mb-4-desktop has-text-white ">
-{data.list[0].main.temp}°F
-</p>
- </div>
-  </div>
 
-<div className='column '>
-
-  <WeatherIcons
+<MainTemp
+name={data.city.name}
+country={data.city.country}
+population={data.city.population.toLocaleString()}
+description={data.list[0].weather[0].description}
+main_temp={data.list[0].main.temp}
+dt={DateTime.now(data.list[0].dt_txt).toLocaleString()}
+humidity={data.list[0].main.humidity}
+clouds_all={data.list[0].clouds.all}
+wind_speed={data.list[0].wind.speed}
+feels_like={data.list[0].main.feels_like}
+temp_max={data.list[0].main.temp_max}
+temp_min={data.list[0].main.temp_min}
+sunrise={moment.unix(data.city.sunrise).format('LTS')}
+sunset={moment.unix(data.city.sunset).format('LTS')}
 weather_icon={data.list[0].weather[0].icon}
-description={data.list[9].weather[0].description}
+
 />
 </div>
+
+  </div>
+  <div class="column">
+  <WeatherIcons
+weather_icon={data.list[0].weather[0].icon}
+description={data.list[9].weather[0].description.toUpperCase()}
+/>
+
+    </div>
+
 </div>
 
-<p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
+<div class="column is-three-fifths
+is-offset-one-fifth">
+  <WeatherList1
+weather_icon={data.list[0].weather[0].icon}
+description={data.list[9].weather[0].description}
+dt={data.list[0].dt_txt}
+humidity={data.list[0].main.humidity}
+clouds_all={data.list[0].clouds.all}
+wind_speed={data.list[0].wind.speed}
+feels_like={data.list[0].main.feels_like}
+temp_max={data.list[0].main.temp_max}
+temp_min={data.list[0].main.temp_min}
+sunrise={moment.unix(data.city.sunrise).format('LTS')}
+sunset={moment.unix(data.city.sunset).format('LTS')}
+/>
+  </div>
+
+<div className="column
+is-11
+is-offset-1
+
+">
 
   <LatLonMobileScrolling
 name={data.city.name}
@@ -164,18 +193,11 @@ day_5_humidity={data.list[32].main.humidity}
 day_5_clouds_all={data.list[32].clouds.all}
 day_5_wind_speed={data.list[32].wind.speed}
 day_5_wind_gust={data.list[32].wind.gust}
-
-
 />
-
-
-
-
  <div>
-
-
  </div>
-<div> 
+ </div>
+<div>
 </div>
 
 
