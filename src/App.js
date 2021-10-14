@@ -9,15 +9,17 @@ import MainTemp from './QuerySearch/MainTemp';
 import WeatherIcons from './Icons/WeatherIcons';
 import Header from './Header';
 import Footer from './Footer';
+import Articles from './Articles';
 
 const moment = require('moment');
 require('moment-timezone');
 
 require('dotenv').config()
 
-function App() {
+function App(props) {
 
   const [weatherData, setWeatherData] = useState({ list: [] });
+
   const [url, setUrl] = useState(``);
 
 
@@ -233,15 +235,23 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 
 </div>
 </div>
-
       </div>
 
       )}
+
 {showGeoLoc &&
 <Geo5days />}
+
+
   </Fragment>
+
 <Footer />
 
+
+<Articles
+query={query}
+{...props}
+/>
     </div>
 
   );
