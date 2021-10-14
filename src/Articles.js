@@ -72,10 +72,8 @@ mt-3
 
       {articleData.articles && articleData.articles.map(article => (
 
-<div className="column is-one-quarter box m-1
-is-mobile
-scrolling-wrapper
-scrollbar-hidden" key={article} >
+<div className="column
+" key={article} >
 
 
 

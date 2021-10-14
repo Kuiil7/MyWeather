@@ -8,7 +8,6 @@ import WeatherList1 from './QuerySearch/WeatherList1';
 import MainTemp from './QuerySearch/MainTemp';
 import WeatherIcons from './Icons/WeatherIcons';
 import Header from './Header';
-import Footer from './Footer';
 import Articles from './Articles';
 
 const moment = require('moment');
@@ -245,7 +244,6 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 
   </Fragment>
 
-<Footer />
 
 
 <Articles
