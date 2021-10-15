@@ -19,14 +19,26 @@ function App(props) {
 
   const [weatherData, setWeatherData] = useState({ list: [] });
 
-  const [url, setUrl] = useState(``);
-
+  const [weatherURL, setWeatherURL] = useState(``);
 
   const [showGeoLoc, setShowGeoLoc] = useState(true);
-  const [isError, setIsError] = useState(false);
+
   const [query, setQuery] = useState('');
+
+
+
+  const [articleData, setArticleData] = useState({articles:[]});
+
+  const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/everything?q=weather&sortBy=popularit&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+
+
+
+
+
   const [isLoading, setIsLoading] = useState(false);
-  const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
+  const [isError, setIsError] = useState(false);
+
+  const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
 
   useEffect(() => {
 
@@ -35,31 +47,36 @@ function App(props) {
       setIsLoading(true);
 setIsError(false)
 
-      const result = await axios(url);
+      const weatherResult = await axios(weatherURL);
 
-      setWeatherData(result.data);
+      setWeatherData(weatherResult.data);
+
+      const articleResult = await axios(articleURL);
+
+
+      setArticleData(articleResult.data);
+
       setIsLoading(false);
-      console.log(result.data)
+      console.log(weatherResult.data)
+      console.log(articleResult.data)
+
     };
     fetchData();
-  }, [url]);
-
-
-
+  }, [weatherURL, articleURL]);
 
   return (
 
-
-
-
-    <div className="App has-background-primary">
+    <div className="App has-background-primary ">
 
 <Fragment>
-
   <Header />
 
 <form onSubmit={event => {
-        setUrl(`${baseWeatherUrl}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+
+        setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+
+        setArticleURL(`https://newsapi.org/v2/everything?q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+
         event.preventDefault();
       }}>
 
@@ -71,7 +88,10 @@ mt-3
   <input
           type="text"
           value={query}
-          onChange={event => setQuery(event.target.value)}
+          onChange={event =>
+            setQuery(event.target.value)
+          }
+
           className="input is-primary mb-2  is-rounded"
           placeholder="enter a city name"
           onClick={() => setShowGeoLoc(!showGeoLoc)}
@@ -101,7 +121,7 @@ mt-3
 <div key={mainIndex} >
 
 
-<div class="columns is-mobile is-justify-content-center">
+<div class="columns is-mobile is-justify-content-center container">
   <div class="column">
 <div className="is-pulled-right">
 <MainTemp
@@ -233,7 +253,9 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 
 
 </div>
+
 </div>
+
       </div>
 
       )}
@@ -241,15 +263,41 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 {showGeoLoc &&
 <Geo5days />}
 
+<div className="container" >
 
-  </Fragment>
+<div className="columns
 
 
+
+ " >
+
+
+{articleData.articles && articleData.articles.splice(0,3).map(article => (
+
+  <div className="column">
+
+<div  key={article} >
 
 <Articles
-query={query}
-{...props}
+url={article.url}
+name={article.source.name}
+
+urlToImage={article.urlToImage}
+publishedAt={article.publishedAt}
+title={article.title}content={article.content}
+description={article.description}
 />
+
+
+</div>
+  </div>
+))}
+
+
+</div>
+</div>
+
+</Fragment>
     </div>
 
   );
