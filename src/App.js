@@ -64,6 +64,10 @@ setIsError(false)
     fetchData();
   }, [weatherURL, articleURL]);
 
+
+
+
+
   return (
 
     <div className="App has-background-primary ">
@@ -141,9 +145,10 @@ sunrise={moment.unix(weatherData.city.sunrise).format('LTS')}
 sunset={moment.unix(weatherData.city.sunset).format('LTS')}
 weather_icon={weatherData.list[0].weather[0].icon}
 />
+  </div>
+  </div>
 
-  </div>
-  </div>
+
   <div class="column">
 <WeatherIcons
 weather_icon={weatherData.list[0].weather[0].icon}
@@ -272,7 +277,8 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
  " >
 
 
-{articleData.articles && articleData.articles.splice(0,3).map(article => (
+{articleData.articles && articleData.articles.splice(Math.random() * articleData.articles.length
+ | 0, 3).map(article => (
 
   <div className="column">
 
@@ -281,7 +287,6 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 <Articles
 url={article.url}
 name={article.source.name}
-
 urlToImage={article.urlToImage}
 publishedAt={article.publishedAt}
 title={article.title}content={article.content}
