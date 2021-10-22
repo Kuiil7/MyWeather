@@ -1,7 +1,7 @@
 import React from "react";
 import TextScroller from "./TextScroller"
 
-const Articles
+const Articles2
  = (props) => {
 
 
@@ -37,5 +37,5 @@ text={NewsTicker}
     </>
   );
 };
-export default Articles
+export default Articles2
 ;

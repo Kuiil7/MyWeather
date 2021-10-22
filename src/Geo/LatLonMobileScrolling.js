@@ -30,14 +30,14 @@ is-2-desktop
   <div className="box px-2">
 <div className="has-text-centered">
 
-<p className=" has-text-primary">{props.day_1_date }</p>
+<p >{props.day_1_date }</p>
 
  <img  src={`http://openweathermap.org/img/wn/${props.day_1_weather_icon}@2x.png`}  alt='weather icons' />
 
-<p className="mb-3 has-text-primary ">{props.day_1_weather_description }</p>
+<p className="mb-3  ">{props.day_1_weather_description }</p>
 </div>
 
-<ul  className="has-text-primary ">
+<ul  >
 <li className="is-size-3 has-text-centered mt-3  " >{props.day_1_main_temp} °F</li>
    <li>Humidity: {props.day_1_humidity} %</li>
   <li>Wind: {props.day_1_wind_speed}mph</li>
@@ -60,16 +60,16 @@ is-2-desktop
   <div className="box px-2">
 <div className="has-text-centered ">
 
-<p className=" has-text-primary">
+<p >
 {props.day_2_date }
 </p>
 
  <img   src={`http://openweathermap.org/img/wn/${props.day_2_weather_icon}@2x.png`}  alt='weather icons' />
 
-<p className="mb-3 has-text-primary has-text-weight-light">{props.day_2_weather_description }</p>
+<p className="mb-3  has-text-weight-light">{props.day_2_weather_description }</p>
 </div>
 
-<ul  className="has-text-primary ">
+<ul  >
   <li className="is-size-3 has-text-centered mt-3" >{props.day_2_main_temp} °F</li>
    <li>Humidity: {props.day_2_humidity} </li>
   <li>Wind: {props.day_2_wind_speed}mph</li>
@@ -92,14 +92,14 @@ is-2-desktop
   <div className="box px-2">
   <div className="has-text-centered">
 
-<p className=" has-text-primary">
+<p >
 {props.day_3_date }
 </p>
  <img  src={`http://openweathermap.org/img/wn/${props.day_3_weather_icon}@2x.png`}  alt='weather icons' />
-<p className="mb-3 has-text-primary ">{props.day_3_weather_description }</p>
+<p className="mb-3  ">{props.day_3_weather_description }</p>
 </div>
 
-<ul  className="has-text-primary ">
+<ul  >
 <li className="is-size-3 has-text-centered mt-3" >{props.day_3_main_temp} °F</li>
 <li>Humidity: {props.day_3_humidity} %</li>
 <li>Wind: {props.day_3_wind_speed} mph</li>
@@ -122,17 +122,17 @@ is-2-desktop
     <div className="box px-2">
  <div className="has-text-centered">
 
-<p className=" has-text-primary">
+<p >
 {props.day_4_date }
 </p>
 
  <img src={`http://openweathermap.org/img/wn/${props.day_4_weather_icon}@2x.png`}  alt='weather icons' />
 
 
-<p className="mb-3 has-text-primary ">{props.day_4_weather_description }</p>
+<p className="mb-3  ">{props.day_4_weather_description }</p>
 </div>
 
-<ul  className="has-text-primary ">
+<ul  >
 <li className="is-size-3 has-text-centered mt-3" >{props.day_4_main_temp} °F</li>
    <li>Humidity: {props.day_4_humidity} %</li>
   <li>Wind: {props.day_4_wind_speed} mph</li>
@@ -152,16 +152,16 @@ is-2-desktop
   ">
     <div className="box px-2 ">
     <div className="has-text-centered ">
-<p className=" has-text-primary">
+<p >
 {props.day_5_date }
 </p>
 
  <img   src={`http://openweathermap.org/img/wn/${props.day_5_weather_icon}@2x.png`}  alt='weather icons' />
 
-<p className="mb-3 has-text-primary ">{props.day_5_weather_description }</p>
+<p className="mb-3  ">{props.day_5_weather_description }</p>
 </div>
 
-<ul  className="has-text-primary ">
+<ul  >
 <li className="is-size-3 has-text-centered mt-3" >
   {props.day_5_main_temp} °F
   </li>

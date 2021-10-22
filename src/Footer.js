@@ -3,15 +3,21 @@ import React from "react";
 const Footer = () => {
   return (
     < >
-<div >
-<footer className="footer">
-  <div className="content has-text-centered mt-6">
-    <p >
-     <a href="http://www.jgamworks.com" alt="my website" > 🤟🏿 JGAMWORKS 🤟🏿</a>
-      </p>
+
+
+  <div class="hero-foot footer has-background-info">
+    <nav class="tabs  is-fullwidth">
+      <div class="container">
+      <p ><a href="http://www.jgamworks.com" alt="my website" > Made by
+    <span className="is-size-3">
+    🤙🏽</span>
+    </a></p>
+      </div>
+    </nav>
   </div>
-</footer>
-</div>
+
+
+
 
     </>
   );

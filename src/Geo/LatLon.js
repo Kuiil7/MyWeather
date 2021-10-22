@@ -213,10 +213,12 @@ day_5_wind_gust={data.list[32].wind.gust}
 
 
 
+</div>
 
 </div>
+
 </div>
-</div>
+
 
 </>
   );

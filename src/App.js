@@ -1,4 +1,3 @@
-import './App.css';
 import React, { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
 import Geo5days from './Geo/LatLon';
@@ -7,38 +6,37 @@ import MobileScrolling from './QuerySearch/MobileScrolling';
 import WeatherList1 from './QuerySearch/WeatherList1';
 import MainTemp from './QuerySearch/MainTemp';
 import WeatherIcons from './Icons/WeatherIcons';
-import Header from './Header';
+import Articles2 from './Articles2';
 import Articles from './Articles';
 
 const moment = require('moment');
-require('moment-timezone');
 
 require('dotenv').config()
 
-function App(props) {
+function App() {
+
 
   const [weatherData, setWeatherData] = useState({ list: [] });
 
   const [weatherURL, setWeatherURL] = useState(``);
-
-  const [showGeoLoc, setShowGeoLoc] = useState(true);
-
-  const [query, setQuery] = useState('');
-
-
 
   const [articleData, setArticleData] = useState({articles:[]});
 
   const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/everything?q=weather&sortBy=popularit&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
 
 
+  const [showGeoLoc, setShowGeoLoc] = useState(true);
 
+  const [query, setQuery] = useState('');
 
 
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
+
+
+
 
   useEffect(() => {
 
@@ -65,51 +63,48 @@ setIsError(false)
   }, [weatherURL, articleURL]);
 
 
-
-
-
   return (
-
-    <div className="App has-background-primary ">
-
-<Fragment>
-  <Header />
+<>
 
 <form onSubmit={event => {
-
-        setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
-
-        setArticleURL(`https://newsapi.org/v2/everything?q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
-
-        event.preventDefault();
-      }}>
+setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+setArticleURL(`https://newsapi.org/v2/everything?q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+event.preventDefault();
+}}>
 
 <div class="columns is-justify-content-center ">
-  <div className="column
+<div className="column
 is-5
 mt-3
 ">
-  <input
-          type="text"
-          value={query}
-          onChange={event =>
-            setQuery(event.target.value)
-          }
+<input
+  type="text"
+  value={query}
+  onChange={event =>
+    setQuery(event.target.value)
+  }
+  className="input is-info mb-2  is-rounded"
+  placeholder="enter a city name"
+  onClick={() => setShowGeoLoc(!showGeoLoc)}
+/>
+<button className="button is-small is-info is-inverted is-rounded" type="submit">Search</button>
+</div>
+</div>
+</form>
 
-          className="input is-primary mb-2  is-rounded"
-          placeholder="enter a city name"
-          onClick={() => setShowGeoLoc(!showGeoLoc)}
-        />
-<button className="button is-small is-primary is-inverted is-rounded" type="submit">Search</button>
-  </div>
-  </div>
- </form>
+
+
+
+
+
 
       {isError && <div>Something went wrong ...</div>}
 
       {isLoading ? (
-        <div>Loading...</div>
+        <div><p className="has-text-white"> Loading...</p></div>
       ) : (
+
+
         <div className="container
         is-jusify-content-center
         has-text-white
@@ -177,8 +172,7 @@ sunset={moment.unix(weatherData.city.sunset).format('LTS')}
 />
   </div>
 
-  <div className="column is-11
-is-offset-1
+  <div className="column is-11 is-offset-1
 ">
 
 <p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
@@ -265,26 +259,33 @@ day_5_wind_gust={weatherData.list[32].wind.gust}
 
       )}
 
+
+
+
+
 {showGeoLoc &&
 <Geo5days />}
 
 <div className="container" >
 
-<div className="columns
+<div class="columns is-mobile">
 
 
 
- " >
 
+  <div class="column
 
+  ">
 {articleData.articles && articleData.articles.splice(Math.random() * articleData.articles.length
- | 0, 3).map(article => (
+).map(article => (
 
-  <div className="column">
+  <div class="column
 
-<div  key={article} >
+  ">
 
 <Articles
+
+key={article}
 url={article.url}
 name={article.source.name}
 urlToImage={article.urlToImage}
@@ -294,17 +295,25 @@ description={article.description}
 />
 
 
+
+<Articles2
+
+key={article}
+url={article.url}
+name={article.source.name}
+urlToImage={article.urlToImage}
+publishedAt={article.publishedAt}
+title={article.title}content={article.content}
+description={article.description}
+/>
 </div>
-  </div>
+
 ))}
-
+  </div>
 
 </div>
 </div>
-
-</Fragment>
-    </div>
-
+</>
   );
 }
 
