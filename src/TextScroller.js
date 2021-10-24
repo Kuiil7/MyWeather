@@ -9,7 +9,6 @@ const TextScroller = ({ text }) => {
     to: { transform: "translate(-60%,0)" },
     config: { duration: 8000 },
     reset: true,
-    //reverse: key % 2 == 0,
     onRest: () => {
       setKey(key + 1);
     }
@@ -17,13 +16,18 @@ const TextScroller = ({ text }) => {
 
   return (
 
-<div key={key}>
+<div className="columns"> 
+  <div className="column">
+  <div key={key}>
       <animated.div 
       style={scrolling}>
         {text}
      
       </animated.div>
     </div>
+
+  </div>
+</div>
 
   
   );

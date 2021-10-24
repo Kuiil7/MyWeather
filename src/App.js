@@ -20,8 +20,8 @@ const App = () => {
   const [weatherURL, setWeatherURL] = useState(``);
 
   const [articleData, setArticleData] = useState({articles:[]});
-  const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/everything?q=weather&sortBy=popularit&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
-
+  const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/top-headlines?q=weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+ 
   
   const [showGeoLoc, setShowGeoLoc] = useState(true);
 
@@ -30,15 +30,15 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
+ 
+
   const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
-
-
-
+  const baseArticleURL = 'https://newsapi.org/v2/everything?'
 
   useEffect(() => {
 
     const fetchData = async () => {
-
+     
       setIsLoading(true);
 setIsError(false)
 
@@ -65,7 +65,7 @@ setIsError(false)
 
     <form onSubmit={event => {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
-    setArticleURL(`https://newsapi.org/v2/everything?q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+    setArticleURL(`${baseArticleURL}q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
 
     event.preventDefault();
 
@@ -264,10 +264,12 @@ setIsError(false)
     
     {showGeoLoc &&
     <Geo5days />}
-    
+            <p className="has-text-centered title is-1 has-text-white">U.S. Weather News</p>
+
     <div className="columns 
   
   ">
+
 <div className="column
 is-flex
 is-gapless
@@ -276,8 +278,9 @@ is-gapless
 ).map(article => (
 
   <div className="column
-  
+
   ">
+
 <Articles
 
 key={article}
