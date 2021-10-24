@@ -71,6 +71,7 @@ is-2-desktop
 
 <ul  >
   <li className="is-size-3 has-text-centered mt-3" >{props.day_2_main_temp} °F</li>
+
    <li>Humidity: {props.day_2_humidity} </li>
   <li>Wind: {props.day_2_wind_speed}mph</li>
   <li>Gust: {props.day_2_wind_gust} mph</li>
@@ -101,6 +102,7 @@ is-2-desktop
 
 <ul  >
 <li className="is-size-3 has-text-centered mt-3" >{props.day_3_main_temp} °F</li>
+
 <li>Humidity: {props.day_3_humidity} %</li>
 <li>Wind: {props.day_3_wind_speed} mph</li>
 <li>Gust: {props.day_3_wind_gust} mph</li>

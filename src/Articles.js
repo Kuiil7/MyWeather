@@ -4,38 +4,22 @@ import TextScroller from "./TextScroller"
 const Articles
  = (props) => {
 
-
-  const NewsTicker = <div class="columns">
-  <div class="column ">
-  <a className="has-text-white" href={props.url}> {props.title}</a>
-
+  const NewsTicker= <div >
+    <p className="has-text-white">{props.title}</p>
   </div>
 
-</div>
-
-
+ 
   return (
     < >
 
-
-
-<div class="columns-reverse is-mobile">
-  <div class="column-reverse is-half">
   <TextScroller
 text={NewsTicker}
+
+
 />
-  </div>
-
-</div>
-
-
-
-
-
 
 
     </>
   );
 };
-export default Articles
-;
+export default Articles;

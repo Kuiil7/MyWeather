@@ -43,7 +43,10 @@ is-2-desktop
 <ul  >
 <li className="is-size-3 has-text-centered mt-3  " >
   {props.day_1_main_temp}°F
+
   </li>
+
+
    <li>
        Humidity: {props.day_1_humidity}%
         </li>
@@ -84,6 +87,7 @@ is-2-desktop
 <ul  >
   <li className="is-size-3 has-text-centered mt-3" >
   {props.day_2_main_temp}°F
+
   </li>
    <li>
    Humidity: {props.day_2_humidity}%
@@ -116,7 +120,7 @@ is-2-desktop
   <div className="has-text-centered">
 
 <p >
-{props.day_2_date }
+{props.day_3_date }
 </p>
 
  <img  src={`http://openweathermap.org/img/wn/${props.day_3_weather_icon}@2x.png`}  alt='weather icons' />
@@ -127,7 +131,9 @@ is-2-desktop
 <ul  >
 <li className="is-size-3 has-text-centered mt-3" >
   {props.day_3_main_temp}°F
+
   </li>
+
    <li>
        Humidity: {props.day_3_humidity}%
         </li>
@@ -171,7 +177,10 @@ is-2-desktop
 <ul  >
 <li className="is-size-3 has-text-centered mt-3" >
   {props.day_4_main_temp}°F
+
   </li>
+
+  
    <li>
        Humidity: {props.day_4_humidity}%
         </li>
@@ -216,7 +225,9 @@ is-2-desktop
 <ul  >
 <li className="is-size-3 has-text-centered mt-3" >
   {props.day_5_main_temp}°F
+
   </li>
+
    <li>
        Humidity: {props.day_5_humidity}%
   </li>
