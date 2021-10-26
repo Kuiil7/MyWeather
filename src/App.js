@@ -1,12 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import Geo5days from './Geo/LatLon';
-import { DateTime } from 'luxon';
-import MobileScrolling from './MobileScrolling';
-import WeatherList1 from './QuerySearch/WeatherList1';
-import MainTemp from './QuerySearch/MainTemp';
-import WeatherIcons from './Icons/WeatherIcons';
+import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import Articles from './Articles';
+import { DateTime } from 'luxon';
+import WeatherIcons from './components/icons/WeatherIcons';
+import WeatherList1 from './components/temps/WeatherList';
+import MainTemp from './components/temps/Main_Temp';
+
+import Articles from './components/news/Articles';
+import MobileScrolling from './components/temps/MobileScrolling';
+import LatLon from './components/geo/LatLon';
 
 const moment = require('moment');
 require('dotenv').config()
@@ -20,9 +21,9 @@ const App = () => {
   const [weatherURL, setWeatherURL] = useState(``);
 
   const [articleData, setArticleData] = useState({articles:[]});
-  const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/top-headlines?q=weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
- 
-  
+  const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/everything?q=weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
+
+
   const [showGeoLoc, setShowGeoLoc] = useState(true);
 
   const [query, setQuery] = useState('');
@@ -30,7 +31,7 @@ const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
- 
+
 
   const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
   const baseArticleURL = 'https://newsapi.org/v2/everything?'
@@ -38,7 +39,7 @@ const App = () => {
   useEffect(() => {
 
     const fetchData = async () => {
-     
+
       setIsLoading(true);
 setIsError(false)
 
@@ -70,7 +71,7 @@ setIsError(false)
     event.preventDefault();
 
     }}>
-    
+
     <div class="columns is-justify-content-center ">
     <div className="column
     is-5
@@ -90,35 +91,35 @@ setIsError(false)
     </div>
     </div>
     </form>
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
           {isError && <div>Something went wrong ...</div>}
-    
+
           {isLoading ? (
             <div><p className="has-text-white"> Loading...</p></div>
           ) : (
-    
-    
+
+
             <div className="container
             is-jusify-content-center
             has-text-white
             ">
-    
+
      <div className="columns ">
     <div className="column ">
-    
-    
-    
+
+
+
     {weatherData.list && weatherData.list.slice(0,1).map( mainIndex => (
-    
+
     <div key={mainIndex} >
-    
-    
+
+
     <div class="columns is-mobile is-justify-content-center container">
       <div class="column">
     <div className="is-pulled-right">
@@ -141,19 +142,19 @@ setIsError(false)
     />
       </div>
       </div>
-    
-    
+
+
       <div class="column">
     <WeatherIcons
     weather_icon={weatherData.list[0].weather[0].icon}
     description={weatherData.list[9].weather[0].description.toUpperCase()}
     />
-    
+
         </div>
-    
+
     </div>
-    
-    
+
+
     <div class="column is-three-fifths
     is-offset-one-fifth">
       <WeatherList1
@@ -170,10 +171,10 @@ setIsError(false)
     sunset={moment.unix(weatherData.city.sunset).format('LTS')}
     />
       </div>
-    
+
       <div className="column is-11 is-offset-1
     ">
-    
+
     <p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
       <MobileScrolling
     name={weatherData.city.name}
@@ -191,7 +192,7 @@ setIsError(false)
     sunrise={moment.unix(weatherData.city.sunrise).format('LTS')}
     sunset={moment.unix(weatherData.city.sunset).format('LTS')}
     weather_icon={weatherData.list[0].weather[0].icon}
-    
+
     day_1_weather_icon={weatherData.list[0].weather[0].icon}
     day_1_weather_description={ weatherData.list[0].weather[0].description }
     day_1_main_temp={weatherData.list[0].main.temp}
@@ -201,7 +202,7 @@ setIsError(false)
     day_1_clouds_all={weatherData.list[0].clouds.all}
     day_1_wind_speed={weatherData.list[0].wind.speed}
     day_1_wind_gust={weatherData.list[0].wind.gust}
-    
+
     day_2_weather_icon={weatherData.list[8].weather[0].icon}
     day_2_weather_description={ weatherData.list[8].weather[0].description }
     day_2_main_temp={weatherData.list[8].main.temp}
@@ -211,7 +212,7 @@ setIsError(false)
     day_2_clouds_all={weatherData.list[8].clouds.all}
     day_2_wind_speed={weatherData.list[8].wind.speed}
     day_2_wind_gust={weatherData.list[8].wind.gust}
-    
+
     day_3_weather_icon={weatherData.list[16].weather[0].icon}
     day_3_weather_description={ weatherData.list[16].weather[0].description }
     day_3_main_temp={weatherData.list[16].main.temp}
@@ -221,7 +222,7 @@ setIsError(false)
     day_3_clouds_all={weatherData.list[16].clouds.all}
     day_3_wind_speed={weatherData.list[16].wind.speed}
     day_3_wind_gust={weatherData.list[16].wind.gust}
-    
+
     day_4_weather_icon={weatherData.list[24].weather[0].icon}
     day_4_weather_description={ weatherData.list[24].weather[0].description }
     day_4_main_temp={weatherData.list[24].main.temp}
@@ -231,7 +232,7 @@ setIsError(false)
     day_4_clouds_all={weatherData.list[24].clouds.all}
     day_4_wind_speed={weatherData.list[24].wind.speed}
     day_4_wind_gust={weatherData.list[24].wind.gust}
-    
+
     day_5_weather_icon={weatherData.list[32].weather[0].icon}
     day_5_weather_description={ weatherData.list[32].weather[0].description }
     day_5_main_temp={weatherData.list[32].main.temp}
@@ -241,62 +242,64 @@ setIsError(false)
     day_5_clouds_all={weatherData.list[32].clouds.all}
     day_5_wind_speed={weatherData.list[32].wind.speed}
     day_5_wind_gust={weatherData.list[32].wind.gust}
-    
-    
+
+
     />
       </div>
     </div>
-    
-     ))}
-    
-    
-    </div>
-    
-    </div>
-    
-          </div>
-    
-          )}
-    
-    
-    
-    
-    
-    {showGeoLoc &&
-    <Geo5days />}
-            <p className="has-text-centered title is-1 has-text-white">U.S. Weather News</p>
 
-    <div className="columns 
-  
-  ">
+     ))}
+
+
+    </div>
+
+    </div>
+
+          </div>
+
+          )}
+
+
+
+
+
+    {showGeoLoc &&
+    <LatLon />}
+<p className="has-text-centered title is-1 has-text-white">U.S. Weather News</p>
+
+<div className="columns
+is-flex
+is-12
+is-flex-wrap-wrap
+">
 
 <div className="column
 is-flex
-is-gapless
+is-12
 ">
 {articleData.articles && articleData.articles.splice(Math.random() * articleData.articles.length
-).map(article => (
+).map(article1 => (
 
-  <div className="column
+<div  className="column
 
-  ">
+">
 
 <Articles
-
-key={article}
-url={article.url}
-name={article.source.name}
-urlToImage={article.urlToImage}
-publishedAt={article.publishedAt}
-title={article.title}content={article.content}
-description={article.description}
+key={ article1}
+url={article1.url}
+name={article1.source.name}
+urlToImage={article1.urlToImage}
+publishedAt={article1.publishedAt}
+title={article1.title}content={article1.content}
+description={article1.description}
 />
+
 
 </div>
 
 ))}
-  </div>
-  </div>
+</div>
+</div>
     </>
   );
 };

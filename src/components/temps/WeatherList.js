@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const WeatherList1 = (props) => {
+const WeatherList = (props) => {
   return (
     < >
 <div className ="columns is-mobile is-justify-content-space-around has-text-weight-light is-flex-wrap-wrap has-text-centered ">
@@ -70,4 +70,4 @@ Sunset:
     </>
   );
 };
-export default WeatherList1;
+export default WeatherList;

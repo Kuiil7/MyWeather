@@ -1,17 +1,19 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import { DateTime } from 'luxon';
-import WeatherIcons from '../Icons/WeatherIcons';
-import LatLonMobileScrolling from './LatLonMobileScrolling';
-import WeatherList1 from '../QuerySearch/WeatherList1';
-import MainTemp from '../QuerySearch/MainTemp';
+import WeatherIcons from '../icons/WeatherIcons';
+import WeatherList from '../temps/WeatherList';
+import MainTemp from '../temps/Main_Temp';
+import LatLonScrolling from './LatLon_Scrolling';
+
+
+
 
 const moment = require('moment');
 
 require('dotenv').config()
 
-
-const LatLon = () => {
+const LatLon = (props) => {
 
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
@@ -55,11 +57,7 @@ getData();
 
   return (
 <>
-<div className="container is-justify-content-center  has-text-white" >
-
-
-
-
+<div className=" is-justify-content-center  has-text-white" >
   <div className="columns ">
   <div className="column  ">
 
@@ -67,11 +65,9 @@ getData();
 
   <div key={mainIndex}>
 
-
 <div class="columns is-mobile is-justify-content-center">
   <div class="column">
 <div className="is-pulled-right">
-
 
 <MainTemp
 name={data.city.name}
@@ -92,21 +88,19 @@ weather_icon={data.list[0].weather[0].icon}
 
 />
 </div>
+</div>
 
-  </div>
-  <div class="column">
-  <WeatherIcons
+<div class="column">
+<WeatherIcons
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description.toUpperCase()}
 />
-
-    </div>
+</div>
 
 </div>
 
-<div class="column is-three-fifths
-is-offset-one-fifth">
-  <WeatherList1
+<div class="column is-three-fifths is-offset-one-fifth">
+<WeatherList
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
 dt={data.list[0].dt_txt}
@@ -119,15 +113,10 @@ temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
-  </div>
+</div>
 
-<div className="column
-is-11
-is-offset-1
-
-">
-
-  <LatLonMobileScrolling
+<div className="column is-11 is-offset-1">
+<LatLonScrolling
 name={data.city.name}
 country={data.city.country}
 population={data.city.population.toLocaleString()}
@@ -218,6 +207,7 @@ day_5_wind_gust={data.list[32].wind.gust}
 </div>
 
 </div>
+
 
 
 </>

@@ -1,7 +1,7 @@
 import React from "react";
 
 
-const LatLonMobileScrolling
+const LatLon_Scrolling
  = (props) => {
   return (
     < >
@@ -180,5 +180,4 @@ is-2-desktop
     </>
   );
 };
-export default LatLonMobileScrolling
-;
+export default LatLon_Scrolling;
