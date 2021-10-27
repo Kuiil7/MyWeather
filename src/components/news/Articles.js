@@ -7,7 +7,6 @@ const Articles
   const NewsTicker= <div  >
 
 
-<img className="pr-2 is-pulled-left" src={props.urlToImage} alt="Girl in a jacket" width="100" height="200" />
 
 
 <a classname=" has-text-light" alt="article icons" href={props.url}>{props.title}</a>

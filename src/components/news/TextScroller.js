@@ -16,20 +16,18 @@ const TextScroller = ({ text }) => {
 
   return (
 
-<div className="columns"> 
-  <div className="column">
+
   <div key={key}>
-      <animated.div 
+      <animated.div
       style={scrolling}>
         {text}
-     
+
       </animated.div>
     </div>
 
-  </div>
-</div>
 
-  
+
+
   );
 };
 

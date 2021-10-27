@@ -4,6 +4,7 @@ import { DateTime } from 'luxon';
 import WeatherIcons from './components/icons/WeatherIcons';
 import WeatherList1 from './components/temps/WeatherList';
 import MainTemp from './components/temps/Main_Temp';
+import Article2 from './components/news/Article2';
 
 import Articles from './components/news/Articles';
 import MobileScrolling from './components/temps/MobileScrolling';
@@ -21,6 +22,7 @@ const App = () => {
   const [weatherURL, setWeatherURL] = useState(``);
 
   const [articleData, setArticleData] = useState({articles:[]});
+
   const [articleURL, setArticleURL] = useState(`https://newsapi.org/v2/everything?q=weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
 
 
@@ -32,9 +34,9 @@ const App = () => {
   const [isError, setIsError] = useState(false);
 
 
-
   const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
   const baseArticleURL = 'https://newsapi.org/v2/everything?'
+
 
   useEffect(() => {
 
@@ -66,6 +68,7 @@ setIsError(false)
 
     <form onSubmit={event => {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
+
     setArticleURL(`${baseArticleURL}q=${query}+weather&apiKey=${process.env.REACT_APP_ARTICLE_API_KEY}`);
 
     event.preventDefault();
@@ -117,7 +120,7 @@ setIsError(false)
 
     {weatherData.list && weatherData.list.slice(0,1).map( mainIndex => (
 
-    <div key={mainIndex} >
+    <div key={mainIndex} className="container">
 
 
     <div class="columns is-mobile is-justify-content-center container">
@@ -263,29 +266,35 @@ setIsError(false)
 
 
 
-    {showGeoLoc &&
-    <LatLon />}
-<p className="has-text-centered title is-1 has-text-white">U.S. Weather News</p>
+    {showGeoLoc && <LatLon />}
+
+
+
+
+    <div className="container">
+
+<p className='title is-3 has-text-weight-light has-text-white '>Weather updates... </p>
 
 <div className="columns
-is-flex
-is-12
+
 is-flex-wrap-wrap
 ">
 
 <div className="column
 is-flex
-is-12
+
 ">
+
+<div className="ticker-wrap ">
+<div className="ticker ">
+
 {articleData.articles && articleData.articles.splice(Math.random() * articleData.articles.length
 ).map(article1 => (
 
-<div  className="column
 
-">
+<div className="ticker__item " key={ article1}>
 
-<Articles
-key={ article1}
+<Article2
 url={article1.url}
 name={article1.source.name}
 urlToImage={article1.urlToImage}
@@ -295,11 +304,22 @@ description={article1.description}
 />
 
 
-</div>
+
+
+  </div>
+
+
+
 
 ))}
+
 </div>
 </div>
+</div>
+
+</div>
+</div>
+
     </>
   );
 };
