@@ -1,16 +1,13 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
-import { DateTime } from 'luxon';
 import WeatherIcons from '../Icons/WeatherIcons';
 import MobileScrolling from '../QuerySearch/MobileScrolling';
 import WeatherList1 from '../QuerySearch/WeatherRows';
 import MainTemp from '../QuerySearch/MainTemp';
 
-
 const moment = require('moment');
 
 require('dotenv').config()
-
 
 const LatLon = () => {
 
@@ -36,25 +33,19 @@ const LatLon = () => {
       }
 
         const getData = async () => {
-
           const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
           const latlonURL = `${baseWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
-
           setIsLoading(true);
           setIsError(false)
-
           const latlonResult = await axios(latlonURL);
           setLatLonData(latlonResult.data);
-
           setIsLoading(false);
-
         };
 
 geolocation()
 if (!lat || !lon) return;
 getData()
 }, [lat, lon]);
-
 
 
   return (
@@ -64,9 +55,7 @@ getData()
 {isLoading ? (
   <div><p className="has-text-white"> Loading...</p></div>
 ) : (
-<div className="container
- px-3
-">
+<div className="container px-3">
   <div className="columns ">
   <div className="column  ">
 
@@ -88,7 +77,7 @@ country={data.city.country}
 population={data.city.population.toLocaleString()}
 description={data.list[0].weather[0].description}
 main_temp={data.list[0].main.temp}
-dt={DateTime.now(data.list[0].dt_txt).toLocaleString()}
+dt={moment(data.list[0].dt_txt).format('L')}
 humidity={data.list[0].main.humidity}
 clouds_all={data.list[0].clouds.all}
 wind_speed={data.list[0].wind.speed}
@@ -132,7 +121,7 @@ country={data.city.country}
 population={data.city.population.toLocaleString()}
 description={data.list[0].weather[0].description}
 main_temp={data.list[0].main.temp}
-dt={DateTime.now(data.list[0].dt_txt).toLocaleString()}
+dt={moment(data.list[0].dt_txt).format('L')}
 humidity={data.list[0].main.humidity}
 clouds_all={data.list[0].clouds.all}
 wind_speed={data.list[0].wind.speed}

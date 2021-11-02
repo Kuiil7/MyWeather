@@ -1,7 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import LatLon from './Geo/LatLon';
-import { DateTime } from 'luxon';
 import MobileScrolling from './QuerySearch/MobileScrolling';
 import WeatherList1 from './QuerySearch/WeatherRows';
 import MainTemp from './QuerySearch/MainTemp';
@@ -101,7 +100,9 @@ country={weatherData.city.country}
 population={weatherData.city.population.toLocaleString()}
 description={weatherData.list[0].weather[0].description}
 main_temp={weatherData.list[0].main.temp}
-dt={DateTime.now(weatherData.list[0].dt_txt).toLocaleString()}
+
+
+dt={moment(weatherData.list[0].dt_txt).format('L')}
 humidity={weatherData.list[0].main.humidity}
 clouds_all={weatherData.list[0].clouds.all}
 wind_speed={weatherData.list[0].wind.speed}
@@ -149,7 +150,7 @@ country={weatherData.city.country}
 population={weatherData.city.population.toLocaleString()}
 description={weatherData.list[0].weather[0].description}
 main_temp={weatherData.list[0].main.temp}
-dt={DateTime.now(weatherData.list[0].dt_txt).toLocaleString()}
+dt={moment(weatherData.list[0].dt_txt).format('L')}
 humidity={weatherData.list[0].main.humidity}
 clouds_all={weatherData.list[0].clouds.all}
 wind_speed={weatherData.list[0].wind.speed}
