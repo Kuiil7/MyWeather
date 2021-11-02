@@ -16,7 +16,7 @@ has-text-centered
 ">
 
   <div className="column
-is-5-mobile
+is-6-mobile
 
   ">
   <div className="block">
@@ -35,7 +35,7 @@ is-5-mobile
 </div>
 
 <div className="column
-is-5-mobile
+is-6-mobile
 ">
   <div className="block">
 <div className="card p-3 " >
@@ -53,7 +53,7 @@ is-5-mobile
 </div>
 
 <div className="column
-is-5-mobile
+is-6-mobile
 ">
   <div className="block">
 <div className="card p-3 " >
@@ -71,7 +71,7 @@ is-5-mobile
 </div>
 
 <div className="column
-is-5-mobile
+is-6-mobile
 ">
   <div className="block">
 <div className="card p-3 " >
@@ -89,7 +89,7 @@ is-5-mobile
 </div>
 
 <div className="column
-is-5-mobile
+is-6-mobile
 ">
   <div className="block">
 <div className="card p-3 " >

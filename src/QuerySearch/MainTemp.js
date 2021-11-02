@@ -3,7 +3,7 @@ import React from "react";
 
 const MainTemp = (props) => {
 
-  let MainTempStyle = {  fontSize: "320%" }
+  let MainTempStyle = {  fontSize: "290%" }
 
   return (
   < >
