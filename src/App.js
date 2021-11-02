@@ -34,7 +34,7 @@ function App() {
 
   return (
 <>
-<div className="is-fullheight has-background-info">
+<div className=" has-background-info">
 <div className="has-text-centered ">
 
 <section className="hero is-info">
