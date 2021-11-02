@@ -16,8 +16,10 @@ has-text-centered
 ">
 
   <div className="column
-is-6-mobile
-
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop
   ">
   <div className="block">
 <div className="card p-3" >
@@ -35,8 +37,10 @@ is-6-mobile
 </div>
 
 <div className="column
-is-6-mobile
-">
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
   <div className="block">
 <div className="card p-3 " >
 <p className="is-size-5 has-text-weight-bold" >{props.day_2_date }</p>
@@ -53,8 +57,10 @@ is-6-mobile
 </div>
 
 <div className="column
-is-6-mobile
-">
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
   <div className="block">
 <div className="card p-3 " >
 <p className="is-size-5 has-text-weight-bold" >{props.day_3_date }</p>
@@ -71,8 +77,10 @@ is-6-mobile
 </div>
 
 <div className="column
-is-6-mobile
-">
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
   <div className="block">
 <div className="card p-3 " >
 <p className="is-size-5 has-text-weight-bold">{props.day_4_date }</p>
@@ -89,8 +97,10 @@ is-6-mobile
 </div>
 
 <div className="column
-is-6-mobile
-">
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
   <div className="block">
 <div className="card p-3 " >
 <p className="is-size-5 has-text-weight-bold" >{props.day_5_date }</p>

@@ -19,9 +19,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const baseWeatherURL = 'https://api.openweathermap.org/data/2.5/'
-  const date = new Date();
-  const dateAsString = date.toString();
-  const timezone = dateAsString.match(/\(([^)]+)\)$/)[1];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,11 +50,15 @@ function App() {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
     event.preventDefault();
     }}>
+
+      <div className="container">
 <div className="columns
       is-justify-content-center">
       <div className="column
       p-5
-      is-half">
+      is-6
+
+      ">
         <input
       type="text"
       value={query}
@@ -71,7 +72,7 @@ function App() {
       <button className="button is-small is-info is-inverted is-rounded" type="submit">Search</button>
     </div>
     </div>
-
+    </div>
 </form>
 
 {isError && <div>Something went wrong ...</div>}
@@ -92,7 +93,6 @@ function App() {
 <div className="is-pulled-right">
 
 <p className=" has-text-white is-size-3">{moment().format('L')}</p>
-<p className="has-text-white is-4">{timezone}</p>
 
 <MainTemp
 name={weatherData.city.name}

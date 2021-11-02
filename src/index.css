@@ -11,6 +11,9 @@ body {
 
 }
 
+p {
+  white-space: nowrap;
+}
 
 .footer {
   margin-top: auto;

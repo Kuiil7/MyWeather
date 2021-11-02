@@ -15,10 +15,6 @@ const LatLon = () => {
   const [lon, setLon] = useState(0);
   const [data, setLatLonData] = useState({list: []});
 
-  const date = new Date();
-  const dateAsString = date.toString();
-  const timezone = dateAsString.match(/\(([^)]+)\)$/)[1];
-
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -69,7 +65,7 @@ is-justify-content-center
   <div className="column">
     <div className="is-pulled-right">
     <p className=" has-text-white is-size-3">{moment().format('L')}</p>
-<p className="has-text-white">{timezone}</p>
+
 
 <MainTemp
 name={data.city.name}
@@ -100,7 +96,8 @@ description={data.list[9].weather[0].description}
 
 </div>
 
-
+<div class="column is-three-fifths
+is-offset-one-fifth">
   <WeatherList1
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
@@ -114,6 +111,13 @@ temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
+</div>
+
+<div className="column
+is-11
+is-offset-1
+
+">
 
   <MobileScrolling
 name={data.city.name}
@@ -182,7 +186,6 @@ day_5_clouds_all={data.list[32].clouds.all}
 day_5_wind_speed={data.list[32].wind.speed}
 day_5_wind_gust={data.list[32].wind.gust}
 />
-<div>
 </div>
   </div>
  ))}
