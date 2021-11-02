@@ -35,6 +35,8 @@ function App() {
   return (
 <>
 <div className="is-fullheight has-background-info">
+<div className="has-text-centered ">
+
 <section className="hero is-info">
   <div className="hero-body">
   <p className="title  ">
@@ -45,7 +47,7 @@ function App() {
     </p>
   </div>
 </section>
-
+</div>
 <form onSubmit={event => {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
     event.preventDefault();
