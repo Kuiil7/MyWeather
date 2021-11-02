@@ -1,25 +1,31 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import { DateTime } from 'luxon';
-import WeatherIcons from '../icons/WeatherIcons';
-import WeatherList from '../temps/WeatherList';
-import MainTemp from '../temps/Main_Temp';
-import LatLonScrolling from './LatLon_Scrolling';
-
+import WeatherIcons from '../Icons/WeatherIcons';
+import MobileScrolling from '../QuerySearch/MobileScrolling';
+import WeatherList1 from '../QuerySearch/WeatherRows';
+import MainTemp from '../QuerySearch/MainTemp';
 
 
 const moment = require('moment');
 
 require('dotenv').config()
 
-const LatLon = (props) => {
+
+const LatLon = () => {
 
   const [lat, setLat] = useState(0);
   const [lon, setLon] = useState(0);
-  const [data, setData] = useState({list: []});
+  const [data, setLatLonData] = useState({list: []});
+
+  const date = new Date();
+  const dateAsString = date.toString();
+  const timezone = dateAsString.match(/\(([^)]+)\)$/)[1];
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-
       function geolocation () {
         navigator.geolocation.getCurrentPosition(function(position) {
           let latitude = position.coords.latitude;
@@ -29,44 +35,52 @@ const LatLon = (props) => {
         });
       }
 
+        const getData = async () => {
 
-      function getData () {
+          const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
+          const latlonURL = `${baseWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
 
-            const baseWeatherUrl = 'https://api.openweathermap.org/data/2.5/'
+          setIsLoading(true);
+          setIsError(false)
 
-        const url = `${baseWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`;
+          const latlonResult = await axios(latlonURL);
+          setLatLonData(latlonResult.data);
 
+          setIsLoading(false);
 
-          axios.get(url)
-            .then(function (response) {
-              setData(response.data);
-              console.log(response.data);
-            })
-            .catch(function (error) {
-              return error
-          });
-        }
+        };
 
 geolocation()
 if (!lat || !lon) return;
-getData();
+getData()
 }, [lat, lon]);
 
 
 
   return (
 <>
-<div className=" is-justify-content-center  has-text-white" >
+{isError && <div>Something went wrong ...</div>}
+
+{isLoading ? (
+  <div><p className="has-text-white"> Loading...</p></div>
+) : (
+<div className="container
+ px-3
+">
   <div className="columns ">
   <div className="column  ">
 
 {data.list && data.list.slice(0,1).map( mainIndex => (
+ <div key={mainIndex}>
+<div className="columns
+is-mobile
+is-justify-content-center
+">
 
-  <div key={mainIndex}>
-
-<div class="columns is-mobile is-justify-content-center">
-  <div class="column">
-<div className="is-pulled-right">
+  <div className="column">
+    <div className="is-pulled-right">
+    <p className=" has-text-white is-size-3">{moment().format('L')}</p>
+<p className="has-text-white">{timezone}</p>
 
 <MainTemp
 name={data.city.name}
@@ -84,22 +98,21 @@ temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 weather_icon={data.list[0].weather[0].icon}
-
 />
 </div>
-</div>
+  </div>
 
-<div class="column">
-<WeatherIcons
+  <div className="column ">
+  <WeatherIcons
 weather_icon={data.list[0].weather[0].icon}
-description={data.list[9].weather[0].description.toUpperCase()}
+description={data.list[9].weather[0].description}
 />
 </div>
 
 </div>
 
-<div class="column is-three-fifths is-offset-one-fifth">
-<WeatherList
+
+  <WeatherList1
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
 dt={data.list[0].dt_txt}
@@ -112,10 +125,8 @@ temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
-</div>
 
-<div className="column is-11 is-offset-1">
-<LatLonScrolling
+  <MobileScrolling
 name={data.city.name}
 country={data.city.country}
 population={data.city.population.toLocaleString()}
@@ -182,33 +193,15 @@ day_5_clouds_all={data.list[32].clouds.all}
 day_5_wind_speed={data.list[32].wind.speed}
 day_5_wind_gust={data.list[32].wind.gust}
 />
- <div>
- </div>
- </div>
 <div>
 </div>
-
-
-
-
-
-
   </div>
  ))}
 
-
-
-
-
-
 </div>
-
 </div>
-
 </div>
-
-
-
+)}
 </>
   );
 };
