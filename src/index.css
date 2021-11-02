@@ -11,7 +11,7 @@ body {
 
 }
 
-p {
+p, .li {
   white-space: nowrap;
 }
 
