@@ -46,25 +46,18 @@ getData()
 
   return (
 <>
-{isError && <div>Something went wrong ...</div>}
+{isError && <div >Something went wrong ...</div>}
 
 {isLoading ? (
   <div><p className="has-text-white"> Loading...</p></div>
 ) : (
-
-<div>
-{data.list && data.list.slice(0,1).map( mainIndex => (
-  <div className="container">
-
-    
- <div key={mainIndex}>
- 
+<div className="container px-3">
+{data.list && data.list.slice(0,1).map( (latlonKey, index) => (
+   <div key={index}>
  <div className="columns is-mobile">
 <div className="column">
 <div className="is-pulled-right">
 <p className=" has-text-white is-size-3">{moment().format('L')}</p>
-
-
 <MainTemp
 name={data.city.name}
 country={data.city.country}
@@ -94,8 +87,6 @@ description={data.list[9].weather[0].description}
 
 </div>
 </div>
-
-
   <WeatherList1
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
@@ -110,8 +101,6 @@ sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
 
-
-<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>
 
   <MobileScrolling
 name={data.city.name}
@@ -180,25 +169,10 @@ day_5_clouds_all={data.list[32].clouds.all}
 day_5_wind_speed={data.list[32].wind.speed}
 day_5_wind_gust={data.list[32].wind.gust}
 />
-
-
 </div>
-</div>
-
-
-  
-
-  
-
-
  ))}
-
-
-
 </div>
-
 )}
-
 </>
   );
 };

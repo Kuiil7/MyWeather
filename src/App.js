@@ -5,7 +5,7 @@ import MobileScrolling from './QuerySearch/MobileScrolling';
 import WeatherList1 from './QuerySearch/WeatherRows';
 import MainTemp from './QuerySearch/MainTemp';
 import WeatherIcons from './Icons/WeatherIcons';
-
+import Header from './Header'
 const moment = require('moment');
 
 require('dotenv').config()
@@ -34,20 +34,7 @@ function App() {
 
   return (
 <>
-
-
-<section className="hero is-info">
-  <div className="hero-body has-text-centered" >
-  <p className="title  ">
-    Welcome to MyWeather!
-    </p>
-    <p className="subtitle is-7 is-italic has-text-white">
-     Your #1 U.S. Weather update search site powered by <a  href="https://openweathermap.org/">Openweathermap.org!</a>
-    </p>
-  </div>
-</section>
-
-
+<Header />
 
 <form onSubmit={event => {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
@@ -84,13 +71,11 @@ function App() {
   <div><p className="has-text-white"> Loading...</p></div>
 ) : (
 
+<div className="container px-3">
+{weatherData.list && weatherData.list.slice(0,1).map( weatherKey=> (
+  <div className="" key={weatherKey} > 
 
 
-<div >
-{weatherData.list && weatherData.list.slice(0,1).map( mainIndex => (
-  <div className="container">
-
-<div key={mainIndex} >
 
 <div className="columns is-mobile">
 <div className="column">
@@ -138,8 +123,6 @@ temp_min={weatherData.list[0].main.temp_min}
 sunrise={moment.unix(weatherData.city.sunrise).format('LTS')}
 sunset={moment.unix(weatherData.city.sunset).format('LTS')}
 />
-
-<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>
 
 <MobileScrolling
 name={weatherData.city.name}
@@ -209,7 +192,6 @@ day_5_wind_speed={weatherData.list[32].wind.speed}
 day_5_wind_gust={weatherData.list[32].wind.gust}
 />
 
-</div>
 </div>
 ))}
 </div>
