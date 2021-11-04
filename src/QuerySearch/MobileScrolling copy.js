@@ -1,30 +1,32 @@
 import React from "react";
 
 
-
-const MobileScrolling= (props) => {
+const MobileScrolling2
+ = (props) => {
   return (
     < >
-<div className ="columns 
+
+    <div className="
+  has-text-weight-light
+  has-text-weight-light
+columns
 is-mobile
-has-text-centered
-is-flex-wrap-nowrap
 scrolling-wrapper
 scrollbar-hidden
-
-
-mt-2
-mb-5
+has-text-centered
 ">
 
-<div className="column  
-card
-mr-3
-mb-5
-">
+  <div className="column
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop
+  ">
+  <div className="block">
+<div className="card p-3" >
 <p className=" is-size-3" >{props.day_1_date }</p>
 <img  src={`http://openweathermap.org/img/wn/${props.day_1_weather_icon}@2x.png`}  alt='weather icons' />
-<p className=" is-size-7 has-text-weight-bold">{props.day_1_weather_description.toUpperCase() }</p>
+<p className=" is-size-7 has-text-weight-bold has-text-centered ">{props.day_1_weather_description.toUpperCase() }</p>
 <ul  >
 <li className="is-size-4  " >{props.day_1_main_temp} °F</li>
 <li>Humidity: {props.day_1_humidity}%</li>
@@ -32,11 +34,16 @@ mb-5
 <li>Gust: {props.day_1_wind_gust} mph</li>
 </ul>
 </div>
+</div>
+</div>
 
-<div className="column 
-mr-3
-mb-5
- card">
+<div className="column
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
+  <div className="block">
+<div className="card p-3 " >
 <p className="is-size-3" >{props.day_2_date }</p>
 <img  src={`http://openweathermap.org/img/wn/${props.day_2_weather_icon}@2x.png`}  alt='weather icons' />
 <p className="is-size-7 has-text-weight-bold  ">{props.day_2_weather_description.toUpperCase() }</p>
@@ -47,13 +54,16 @@ mb-5
 <li>Gust: {props.day_2_wind_gust} mph</li>
 </ul>
 </div>
+</div>
+</div>
 
-<div className="column 
-mr-3 
-card
-mb-5
-">
-
+<div className="column
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
+  <div className="block">
+<div className="card p-3 " >
 <p className="is-size-3" >{props.day_3_date }</p>
 <img  src={`http://openweathermap.org/img/wn/${props.day_3_weather_icon}@2x.png`}  alt='weather icons' />
 <p className="is-size-7 has-text-weight-bold  ">{props.day_3_weather_description.toUpperCase() }</p>
@@ -64,11 +74,16 @@ mb-5
 <li>Gust: {props.day_3_wind_gust} mph</li>
 </ul>
 </div>
+</div>
+</div>
 
-<div className="column  
-mr-3
-card
-mb-5">
+<div className="column
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
+  <div className="block">
+<div className="card p-3 " >
 <p className="is-size-3">{props.day_4_date }</p>
 <img  src={`http://openweathermap.org/img/wn/${props.day_4_weather_icon}@2x.png`}  alt='weather icons' />
 <p className="is-size-7 has-text-weight-bold  ">{props.day_4_weather_description.toUpperCase() }</p>
@@ -79,11 +94,16 @@ mb-5">
 <li>Gust: {props.day_4_wind_gust} mph</li>
 </ul>
 </div>
+</div>
+</div>
 
-<div className="column  
-mr-3
-card  
-mb-5">
+<div className="column
+is-3-tablet
+is-2-widescreen
+is-2-fullhd
+is-3-desktop">
+  <div className="block">
+<div className="card p-3 " >
 <p className="is-size-3" >{props.day_5_date }</p>
 <img  src={`http://openweathermap.org/img/wn/${props.day_5_weather_icon}@2x.png`}  alt='weather icons' />
 <p className="is-size-7 has-text-weight-bold  ">{props.day_5_weather_description.toUpperCase() }</p>
@@ -94,9 +114,13 @@ mb-5">
 <li>Gust: {props.day_5_wind_gust} mph</li>
 </ul>
 </div>
+</div>
+</div>
 
 </div>
+
     </>
   );
 };
-export default MobileScrolling;
+export default MobileScrolling2
+;

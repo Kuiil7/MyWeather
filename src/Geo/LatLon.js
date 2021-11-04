@@ -51,20 +51,18 @@ getData()
 {isLoading ? (
   <div><p className="has-text-white"> Loading...</p></div>
 ) : (
-<div className="container px-3">
-  <div className="columns ">
-  <div className="column  ">
 
+<div>
 {data.list && data.list.slice(0,1).map( mainIndex => (
- <div key={mainIndex}>
-<div className="columns
-is-mobile
-is-justify-content-center
-">
+  <div className="container">
 
-  <div className="column">
-    <div className="is-pulled-right">
-    <p className=" has-text-white is-size-3">{moment().format('L')}</p>
+    
+ <div key={mainIndex}>
+ 
+ <div className="columns is-mobile">
+<div className="column">
+<div className="is-pulled-right">
+<p className=" has-text-white is-size-3">{moment().format('L')}</p>
 
 
 <MainTemp
@@ -84,20 +82,20 @@ sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 weather_icon={data.list[0].weather[0].icon}
 />
-</div>
-  </div>
 
-  <div className="column ">
+</div>
+</div>
+
+<div className="column">
   <WeatherIcons
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
 />
-</div>
 
 </div>
+</div>
 
-<div class="column is-three-fifths
-is-offset-one-fifth">
+
   <WeatherList1
 weather_icon={data.list[0].weather[0].icon}
 description={data.list[9].weather[0].description}
@@ -111,13 +109,9 @@ temp_min={data.list[0].main.temp_min}
 sunrise={moment.unix(data.city.sunrise).format('LTS')}
 sunset={moment.unix(data.city.sunset).format('LTS')}
 />
-</div>
 
-<div className="column
-is-11
-is-offset-1
 
-">
+<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>
 
   <MobileScrolling
 name={data.city.name}
@@ -186,14 +180,25 @@ day_5_clouds_all={data.list[32].clouds.all}
 day_5_wind_speed={data.list[32].wind.speed}
 day_5_wind_gust={data.list[32].wind.gust}
 />
-</div>
-  </div>
- ))}
+
 
 </div>
 </div>
+
+
+  
+
+  
+
+
+ ))}
+
+
+
 </div>
+
 )}
+
 </>
   );
 };

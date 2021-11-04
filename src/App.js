@@ -34,11 +34,10 @@ function App() {
 
   return (
 <>
-<div className=" has-background-info">
-<div className="has-text-centered ">
+
 
 <section className="hero is-info">
-  <div className="hero-body">
+  <div className="hero-body has-text-centered" >
   <p className="title  ">
     Welcome to MyWeather!
     </p>
@@ -47,7 +46,9 @@ function App() {
     </p>
   </div>
 </section>
-</div>
+
+
+
 <form onSubmit={event => {
     setWeatherURL(`${baseWeatherURL}forecast?q=${query}&units=imperial&appid=${process.env.REACT_APP_WEATHER_API_KEY}`);
     event.preventDefault();
@@ -82,18 +83,18 @@ function App() {
 {isLoading ? (
   <div><p className="has-text-white"> Loading...</p></div>
 ) : (
-<div className="container is-jusify-content-center has-text-white
-  ">
-<div className="columns ">
 
-<div className="column ">
+
+
+<div >
 {weatherData.list && weatherData.list.slice(0,1).map( mainIndex => (
+  <div className="container">
 
-<div key={mainIndex} className="container">
-<div className="columns is-mobile is-justify-content-center container">
+<div key={mainIndex} >
+
+<div className="columns is-mobile">
 <div className="column">
 <div className="is-pulled-right">
-
 <p className=" has-text-white is-size-3">{moment().format('L')}</p>
 
 <MainTemp
@@ -102,8 +103,6 @@ country={weatherData.city.country}
 population={weatherData.city.population.toLocaleString()}
 description={weatherData.list[0].weather[0].description}
 main_temp={weatherData.list[0].main.temp}
-
-
 dt={moment(weatherData.list[0].dt_txt).format('L')}
 humidity={weatherData.list[0].main.humidity}
 clouds_all={weatherData.list[0].clouds.all}
@@ -126,8 +125,6 @@ description={weatherData.list[9].weather[0].description.toUpperCase()}
 </div>
 </div>
 
-<div className="column is-three-fifths
-is-offset-one-fifth">
 <WeatherList1
 weather_icon={weatherData.list[0].weather[0].icon}
 description={weatherData.list[9].weather[0].description}
@@ -141,11 +138,9 @@ temp_min={weatherData.list[0].main.temp_min}
 sunrise={moment.unix(weatherData.city.sunrise).format('LTS')}
 sunset={moment.unix(weatherData.city.sunset).format('LTS')}
 />
-</div>
 
-<div className="column is-11 is-offset-1
-">
-<p className='title is-3 has-text-weight-light has-text-white '>Five Day Forecast </p>
+<p className='title is-3 has-text-weight-light has-text-white has-text-centered'>Five Day Forecast </p>
+
 <MobileScrolling
 name={weatherData.city.name}
 country={weatherData.city.country}
@@ -213,15 +208,16 @@ day_5_clouds_all={weatherData.list[32].clouds.all}
 day_5_wind_speed={weatherData.list[32].wind.speed}
 day_5_wind_gust={weatherData.list[32].wind.gust}
 />
+
 </div>
 </div>
 ))}
 </div>
-</div>
-</div>
+
+
 )}
 {showGeoLoc && <LatLon />}
-</div>
+
 </>
   );
 }
